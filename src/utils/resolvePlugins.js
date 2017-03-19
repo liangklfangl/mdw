@@ -23,7 +23,10 @@ module.exports = function resolvePlugins(plugins, moduleName) {
   return plugins.map((plugin) => {
     const snippets = plugin.split('?');
     const pluginName = path.join(snippets[0], 'lib', moduleName).split(path.sep).join('/');
-    const pluginQuery = loaderUtils.getOptions(snippets[1] ? `?${snippets[1]}` : '');
+    let loaderContext ={};
+    loaderContext.query = snippets[1] ? `?${snippets[1]}` : '';
+    //getOptions is for loader, but we used for plugin here , so we construct a user defined object
+    const pluginQuery = loaderUtils.getOptions(loaderContext);
     const resolvedPlugin = resolvePlugin(pluginName);
     //we get absolute file path by resolve.sync function 
     if (!resolvedPlugin) {
