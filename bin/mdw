@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+const program = require('commander');
+program.cwd=process.cwd();
+
+program
+  .version(require('../package.json').version, '-v, --version')
+  .option('-s, --start', 'start building markdown files to websites!')
+  .option('-c, --configFile <configFile>', 'custom mdw config file!')
+  //This file is for mdw config update
+  .option('-w, --webpackFile <webpackFile>', 'custom webpack config file!')
+  //This file is to update webpack default configuration
+  .parse(process.argv);
+
+if(program.start){
+  require("../lib/index")(program);
+}

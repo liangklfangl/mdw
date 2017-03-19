@@ -1,0 +1,2 @@
+### webpack的启动是通过dora服务器来完成的？
+  服务器启动了就会启动webpack开始编译，这个编译和我们的wcf这个tool有关系，因为dora-webpack-plugin会通过wcf来获取通用的配置！然后通过这个配置来开启webpack编译过程
