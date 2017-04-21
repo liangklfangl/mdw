@@ -2,7 +2,7 @@ import React from  'react';
 import ReactDOM from 'react-dom';
 const ReactRouter = require('react-router') ;
 const history = require('history');
-import data from '../lib/utils/data.js';
+let data  = require('../lib/utils/data.js');
 import createElement from "../lib/utils/createElement";
 import Router from "react-router";
 /*

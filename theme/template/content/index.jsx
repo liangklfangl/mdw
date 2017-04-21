@@ -42,5 +42,6 @@ callback(null,{
 
 //Data in callback funciton will be all passed to MainContent component
 export default (props) => {
+  console.log('contentTmpl',props);
   return <MainContent {...props} />;
 };

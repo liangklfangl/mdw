@@ -25,3 +25,5 @@ new webpack.DefinePlugin({
 
 #### 7.使用了上面的第二个参数，我们通过指定了common.css，但是这样是无法缓存的！好处是我们可以直接将组建中import的css全部打包到一个单独的文件中！
 解决方案：在参数为true的情况下添加html-webpack-plugin就可以了，用户自己指定htmlTemplate参数
+
+#### 8.学习我们的dora-plugin-webpack，如果用户指定的文件导出了一个对象那么直接忽略我们默认的webpack配置也就是调用getCommonConfig方法得到的结果

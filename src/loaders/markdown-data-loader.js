@@ -67,7 +67,7 @@ module.exports = function(source) {
   //combine user defined and default config
   const resolvedNodePlugins = resolvePlugin(plugins,"node");
   //we get "node" module of plugins
-  const parsedMarkdown = processMardown.process(filename,source,resolvedNodePlugins);
+  let parsedMarkdown = processMardown.process(filename,source,resolvedNodePlugins);
   //filename is absolute path of md file while source is content , resolvedNodePlugins is used to 
   //further process markdown content. Meta part of markdown data include filename . We now get 
   //mark-twain data. In detail http://www.jsonml.org/

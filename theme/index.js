@@ -49,7 +49,8 @@ module.exports = {
   plugins: [
     "./lib/plugins/dora-plugin-description",
   //To devide jsonml to content and description two part, the path relative to process.cwd!
-   "./lib/plugins/dora-plugin-preview?lang=__react"
+   // "./lib/plugins/dora-plugin-preview?lang=__react",
+   "./lib/plugins/dora-plugin-antd",
   ],
   routes: {
   	path:'/',

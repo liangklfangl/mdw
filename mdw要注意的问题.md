@@ -30,3 +30,28 @@ module.exports = (config) => {
 };
 
 ```
+
+### 6.dora-plugin-preview中，我们会首先将import和ReactDOM.render去掉，得到ast对象,同时返回一个函数对象，函数名称为jsonmlReactloader方法，调用这个方法会得到去掉import和ReactDOM.render后构建得到的AST对象。更新了AST后，我们再重新添加import，并将ast转化为code，最后将code交给babel-loader来处理。
+注意，我们这个loader将jsonml进行处理，更新了ast，并重新转化为code，同时因为我们返回了函数，所以node的type就是function。所以在browser.js中做了如下处理:
+
+```js
+'use strict';
+var React = require('react');
+module.exports = function() {
+  return {
+    converters: [
+      [
+        function(node) { return typeof node === 'function'; },
+        //in jsonml, we care about node of function because in jsonml-react-loader, we return a function
+        function(node, index) {
+          return React.cloneElement(node(), { key: index });
+          //we invoke function to get ReactElement
+        },
+      ],
+    ],
+  };
+};
+
+```
+
+

@@ -41,7 +41,7 @@ const pluginsConfig = resolvePlugins(config.plugins, 'config');
     require(pluginConfig[0])(pluginConfig[1]).webpackConfig(webpackConfig, webpack);
   });
  //Thirdly: Invoking webpackConfig funtion in mdw config file to further update webpack config
- const finalUpdatedWebpackConfig =config.webpackConfig(webpackConfig,webpack);
+ let finalUpdatedWebpackConfig = config.webpackConfig(webpackConfig,webpack);
  //Fourthly: Setting entry part of webpack config file
 const entryPath = path.join(path.join(__dirname,".."), '..', 'tmp', 'entry.' + config.entryName + '.js');
 //entryName is also setted in our mdw config file
