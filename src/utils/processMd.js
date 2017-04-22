@@ -110,6 +110,7 @@ const rxSep = new RegExp(`[${path.sep}.]`);
 */
 function filesToTreeStructure(files) {
   return files.reduce((filesTree, filename) => {
+   
     const propLens = R.lensPath(filename.replace(/\.md$/i, '').split(rxSep));
     return R.set(propLens, filename, filesTree);
   }, {});

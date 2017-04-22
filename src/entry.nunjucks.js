@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 const ReactRouter = require('react-router') ;
 const history = require('history');
 let data  = require('../lib/utils/data.js');
+ console.log('准备写data.js',data);
+
 import createElement from "../lib/utils/createElement";
 import Router from "react-router";
 /*

@@ -60,9 +60,7 @@ export default {
   'middleware'() {
     const { verbose, physcisFileSystem } = this.query;
     // const compiler = webpack(webpackConfig);
-
     const compiler = webpackWatch(webpackConfig,{watch:true});
-
     this.set('compiler', compiler);
 
     compiler.plugin('done', function doneHandler(stats) {

@@ -21,6 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ReactRouter = require('react-router');
 var history = require('history');
 var data = require('../lib/utils/data.js');
+console.log('准备写data.js', data);
 
 /*
   var Promise = require('bluebird');
@@ -61,3 +62,24 @@ ReactRouter.match({ routes: routes, location: location, basename: basename }, fu
   });
   _reactDom2.default.render(router, document.getElementById('react-content'));
 });
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(routes, 'routes', 'src/entry.nunjucks.js');
+
+  __REACT_HOT_LOADER__.register(pathname, 'pathname', 'src/entry.nunjucks.js');
+
+  __REACT_HOT_LOADER__.register(search, 'search', 'src/entry.nunjucks.js');
+
+  __REACT_HOT_LOADER__.register(hash, 'hash', 'src/entry.nunjucks.js');
+
+  __REACT_HOT_LOADER__.register(location, 'location', 'src/entry.nunjucks.js');
+
+  __REACT_HOT_LOADER__.register(basename, 'basename', 'src/entry.nunjucks.js');
+}();
+
+;
