@@ -122,7 +122,7 @@ module.exports = (markdownData, isBuild) => {
   const englishIntroStart = getEnglishIntroStart(contentChildren);
   //We invoke findIndex to get index of h2 tag with label of 'en-US'
   const codeIndex = getCodeIndex(contentChildren);
-  //get Pre tag with jsx as attribute
+  //找到第一个pre标签，同时该标签的为jsx属性
   const introEnd = codeIndex === -1 ? contentChildren.length : codeIndex;
   //in Demo page, we will devide content into two parts, zh-CN and en-US. Get end of introduction
   if (chineseIntroStart > -1 ) {

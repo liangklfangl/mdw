@@ -1,68 +1,619 @@
 "use strict";
 
 module.exports = {
-  "content": ["article", ["p", "一二级导航都在顶部。"], ["p", "顶部导航在页面布局上采用的是上下的结构，一般主导航放置于页面的顶端，从左自右依次为：logo、一级导航项、辅助菜单（用户、设置、通知等）。通常将内容放在固定尺寸（例如：1200px）内，整个页面排版稳定，不受用户终端显示器影响；上下级的结构符合用户上下浏览的习惯，也是较为经典的网站导航模式。页面上下切分的方式提高了主工作区域的信息展示效率，但在纵向空间上会有一些牺牲。此外，由于导航栏水平空间的限制，不适合那些一级导航项很多的信息结构。"], ["blockquote", ["p", ["code", "<BrowserDemo />"], " 做演示用，无须复制。"]], ["pre", {
-    "lang": "jsx",
-    "highlighted": "<span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> Menu<span class=\"token punctuation\">,</span> Breadcrumb <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'antd'</span><span class=\"token punctuation\">;</span>\n<span class=\"token keyword\">import</span> BrowserDemo <span class=\"token keyword\">from</span> <span class=\"token string\">'site/theme/template/BrowserDemo'</span><span class=\"token punctuation\">;</span>\n\nReactDOM<span class=\"token punctuation\">.</span><span class=\"token function\">render</span><span class=\"token punctuation\">(</span>\n  <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>BrowserDemo</span><span class=\"token punctuation\">></span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-top<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-header<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-wrapper<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-logo<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu</span> <span class=\"token attr-name\">theme</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>dark<span class=\"token punctuation\">\"</span></span> <span class=\"token attr-name\">mode</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>horizontal<span class=\"token punctuation\">\"</span></span>\n            <span class=\"token attr-name\">defaultSelectedKeys</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">[</span><span class=\"token string\">'2'</span><span class=\"token punctuation\">]</span><span class=\"token punctuation\">}</span></span> <span class=\"token attr-name\">style</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">{</span>lineHeight<span class=\"token punctuation\">:</span> <span class=\"token string\">'64px'</span><span class=\"token punctuation\">}</span><span class=\"token punctuation\">}</span></span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>1<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>导航一<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>2<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>导航二<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>3<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>导航三<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-subheader<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-wrapper<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu</span> <span class=\"token attr-name\">mode</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>horizontal<span class=\"token punctuation\">\"</span></span>\n            <span class=\"token attr-name\">defaultSelectedKeys</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">[</span><span class=\"token string\">'1'</span><span class=\"token punctuation\">]</span><span class=\"token punctuation\">}</span></span> <span class=\"token attr-name\">style</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">{</span>marginLeft<span class=\"token punctuation\">:</span> <span class=\"token number\">124</span><span class=\"token punctuation\">}</span><span class=\"token punctuation\">}</span></span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>1<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>二级导航<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>2<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>二级导航<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>3<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>二级导航<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-wrapper<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-breadcrumb<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Breadcrumb</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Breadcrumb.Item</span><span class=\"token punctuation\">></span></span>首页<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Breadcrumb.Item</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Breadcrumb.Item</span><span class=\"token punctuation\">></span></span>应用列表<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Breadcrumb.Item</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>Breadcrumb.Item</span><span class=\"token punctuation\">></span></span>某应用<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Breadcrumb.Item</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Breadcrumb</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-container<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">style</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">{</span> height<span class=\"token punctuation\">:</span> <span class=\"token number\">210</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">}</span></span><span class=\"token punctuation\">></span></span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-footer<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n      Ant Design 版权所有 © <span class=\"token number\">2015</span> 由蚂蚁金服体验技术部支持\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n  <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>BrowserDemo</span><span class=\"token punctuation\">></span></span>\n<span class=\"token punctuation\">,</span> mountNode<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>"
-  }, ["code", "import { Menu, Breadcrumb } from 'antd';\nimport BrowserDemo from 'site/theme/template/BrowserDemo';\n\nReactDOM.render(\n  <BrowserDemo>\n    <div className=\"ant-layout-top\">\n      <div className=\"ant-layout-header\">\n        <div className=\"ant-layout-wrapper\">\n          <div className=\"ant-layout-logo\"></div>\n          <Menu theme=\"dark\" mode=\"horizontal\"\n            defaultSelectedKeys={['2']} style={{lineHeight: '64px'}}>\n            <Menu.Item key=\"1\">导航一</Menu.Item>\n            <Menu.Item key=\"2\">导航二</Menu.Item>\n            <Menu.Item key=\"3\">导航三</Menu.Item>\n          </Menu>\n        </div>\n      </div>\n      <div className=\"ant-layout-subheader\">\n        <div className=\"ant-layout-wrapper\">\n          <Menu mode=\"horizontal\"\n            defaultSelectedKeys={['1']} style={{marginLeft: 124}}>\n            <Menu.Item key=\"1\">二级导航</Menu.Item>\n            <Menu.Item key=\"2\">二级导航</Menu.Item>\n            <Menu.Item key=\"3\">二级导航</Menu.Item>\n          </Menu>\n        </div>\n      </div>\n      <div className=\"ant-layout-wrapper\">\n        <div className=\"ant-layout-breadcrumb\">\n          <Breadcrumb>\n            <Breadcrumb.Item>首页</Breadcrumb.Item>\n            <Breadcrumb.Item>应用列表</Breadcrumb.Item>\n            <Breadcrumb.Item>某应用</Breadcrumb.Item>\n          </Breadcrumb>\n        </div>\n        <div className=\"ant-layout-container\">\n          <div style={{ height: 210 }}></div>\n        </div>\n      </div>\n      <div className=\"ant-layout-footer\">\n      Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持\n      </div>\n    </div>\n  </BrowserDemo>\n, mountNode);"]], ["pre", {
-    "lang": "css",
-    "highlighted": "<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">100%</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-wrapper</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">padding</span><span class=\"token punctuation\">:</span> <span class=\"token number\">0</span> <span class=\"token number\">50</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-header</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#404040</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-logo</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> <span class=\"token number\">120</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">32</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#333</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">border-radius</span><span class=\"token punctuation\">:</span> <span class=\"token number\">6</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">16</span>px <span class=\"token number\">28</span>px <span class=\"token number\">16</span>px <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">float</span><span class=\"token punctuation\">:</span> left<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-subheader</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">48</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">border-bottom</span><span class=\"token punctuation\">:</span> <span class=\"token number\">1</span>px solid <span class=\"token hexcode\">#e9e9e9</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#fff</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-breadcrumb</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">7</span>px <span class=\"token number\">0</span> -<span class=\"token number\">17</span>px <span class=\"token number\">24</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-container</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#fff</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">24</span>px <span class=\"token number\">0</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> relative<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">padding-top</span><span class=\"token punctuation\">:</span> <span class=\"token number\">24</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">overflow</span><span class=\"token punctuation\">:</span> hidden<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-top</span> <span class=\"token class\">.ant-layout-footer</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">line-height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">text-align</span><span class=\"token punctuation\">:</span> center<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">font-size</span><span class=\"token punctuation\">:</span> <span class=\"token number\">12</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#999</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"
-  }, ["code", ".ant-layout-top {\n  height: 100%;\n}\n\n.ant-layout-top .ant-layout-wrapper {\n  padding: 0 50px;\n}\n\n.ant-layout-top .ant-layout-header {\n  background: #404040;\n  height: 64px;\n}\n\n.ant-layout-top .ant-layout-logo {\n  width: 120px;\n  height: 32px;\n  background: #333;\n  border-radius: 6px;\n  margin: 16px 28px 16px 0;\n  float: left;\n}\n\n.ant-layout-top .ant-layout-subheader {\n  height: 48px;\n  border-bottom: 1px solid #e9e9e9;\n  background: #fff;\n}\n\n.ant-layout-top .ant-layout-breadcrumb {\n  margin: 7px 0 -17px 24px;\n}\n\n.ant-layout-top .ant-layout-container {\n  background: #fff;\n  margin: 24px 0 0;\n  position: relative;\n  padding-top: 24px;\n  overflow: hidden;\n}\n\n.ant-layout-top .ant-layout-footer {\n  height: 64px;\n  line-height: 64px;\n  text-align: center;\n  font-size: 12px;\n  color: #999;\n}"]]],
+  "content": ["article", {}, ["h2", "2.5.2"], ["p", ["code", "2016-12-10"]], ["ul", ["li", ["p", "优化 Menu 已选择项的样式。"]], ["li", ["p", "修复 Mention 不能响应 ", ["code", "onFocus"], " 和 ", ["code", "onBlur"], " 的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4163"
+  }, "#4163"]]], ["li", ["p", "修复 ", ["code", "disabled"], " 和 ", ["code", "checked"], " 的 Radio 之间会多一条阴影的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/4114"
+  }, "#4114"], " @jdz321"]], ["li", ["p", "修复 RangePicker、TimePicker、Calendar 设置 Moment 的 ", ["code", "defaultValue"], " 和 ", ["code", "value"], " 时也会报错的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4147"
+  }, "#4147"]]], ["li", ["p", "修复 Affix 在开启动画的 Tabs 里使用时会消失的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3943"
+  }, "#3943"]]], ["li", ["p", "修复 Cascader 手动选择和搜索选择时 ", ["code", "onChange"], " 接收到的 ", ["code", "selectedOptions"], " 不同的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4096"
+  }, "#4096"]]], ["li", ["p", "修复 Tabs 页增加到一定数量时会产生偏移的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3637"
+  }, "#3637"]]], ["li", ["p", "Table"], ["ul", ["li", ["p", "居中对齐表头分组的父表头。"]], ["li", ["p", "修正设置 filterDropdownVisible 时不生效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4162"
+  }, "#4162"]]]]]], ["h2", "2.5.1"], ["p", ["code", "2016-12-03"]], ["ul", ["li", ["p", "提升网站首页在移动端访问的体验。"]], ["li", ["p", "补充从 ", ["code", "1.x"], " 升级到 ", ["code", "2.x"], " 时的组件改动警告提示。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/4028"
+  }, "#4028"]]], ["li", ["p", "现在 ToolTip、Popover、Popconfirm 支持直接包裹文本节点和多个节点。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3924"
+  }, "#3924"]]], ["li", ["p", "Anchor"], ["ul", ["li", ["p", "修复快速滚动时的定位问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4053"
+  }, "#4053"]]], ["li", ["p", "修复 target 指定父元素 ref 时无效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4037"
+  }, "#4037"]]]]], ["li", ["p", "Table"], ["ul", ["li", ["p", "修复设置 defaultChecked 时的一个选中问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4020"
+  }, "#4020"]]], ["li", ["p", "修复分组表头中筛选功能无法使用的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4099"
+  }, "#4099"]]]]], ["li", ["p", "修复在 ", ["code", "Input[type=\"textarea\"]"], " 上使用 Popover 定位错误问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4092"
+  }, "#4092"]]], ["li", ["p", "修复 Popconfirm 的 ", ["code", "visible"], " 属性失效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/4068"
+  }, "#4068"]]], ["li", ["p", "修复 TimePicker 无法设置 ", ["code", "style.width"], " 的问题。"]], ["li", ["p", "修复 Steps 自定义图标和默认图标大小不一致的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3817"
+  }, "#3817"]]], ["li", ["p", "修复 Form、Button、Slider、Table 等组件的一些样式细节。"]]], ["h2", "2.5.0"], ["p", ["code", "2016-11-25"]], ["ul", ["li", ["p", "默认主题风格修改为支付宝钱包风格，及大量样式优化。"]], ["li", ["p", "支持服务端渲染。（Mention 会因为 ", ["a", {
+    "title": null,
+    "href": "https://github.com/facebook/draft-js/issues/385"
+  }, "draft-js"], " 的问题有 warning）"]], ["li", ["p", "引入 ", ["a", {
+    "title": null,
+    "href": "https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing"
+  }, "Jest Snapshot"], " 测试组件结构及服务端渲染问题。"]], ["li", ["p", "官网及文档优化。"]], ["li", ["p", "新增自定义主题的 ", ["a", {
+    "title": null,
+    "href": "https://ant.design/docs/react/customize-theme"
+  }, "文档"], "。"]], ["li", ["p", "新增 ", ["a", {
+    "title": null,
+    "href": "https://ant.design/docs/resource/download"
+  }, "Sketch 资源文件"], "。"]], ["li", ["p", "LocaleProvider 新增巴西语支持。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/4004"
+  }, "#4004"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/nathantn"
+  }, "@nathantn"]]], ["li", ["p", "DatePicker"], ["ul", ["li", ["p", "DatePicker 现在可以决定是否展示 “今天” 按钮。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/commit/bbef274aae169d142e3e7e3ea0af922d48e6dd64"
+  }, "commit"]]], ["li", ["p", "RangePicker 现在可以自定义快捷选择。", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/date-picker/#components-date-picker-demo-presetted-ranges"
+  }, "demo"]]], ["li", ["p", "修复 DatePicker 设置 ", ["code", "showTime"], " 后 “此刻” 按钮失效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3748"
+  }, "#3748"]]], ["li", ["p", "修复 ", ["code", "RangePicker[format]"], " 失效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3808"
+  }, "#3808"]]]]], ["li", ["p", "新增并优化部分 Icon。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3977"
+  }, "#3977"]]], ["li", ["p", "新增 Input.Search 控件。", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/input/#components-input-demo-search-input"
+  }, "demo"]]], ["li", ["p", "Mention onSelect 事件现在可以获取完整的数据。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3867"
+  }, "#3867"]]], ["li", ["p", "Pagination 现在支持展示当前页的索引范围。", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/pagination/#components-pagination-demo-total"
+  }, "demo"]]], ["li", ["p", "Table"], ["ul", ["li", ["p", "自定义筛选的显示隐藏现在可以通过代码控制。", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/table/#components-table-demo-custom-filter-panel"
+  }, "demo"]]], ["li", ["p", "支持 JSX 风格的方式设置 columns。", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/table/#components-table-demo-jsx"
+  }, "demo"]]], ["li", ["p", "现在可以监听单元格的点击事件。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3774"
+  }, "#3774"]]], ["li", ["p", "修复无边框 Table 头部的圆角样式问题。"]], ["li", ["p", "修复 title 和 footer 高度不随 ", ["code", "Table[size]"], " 变化的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23"
+  }, "commit"]]], ["li", ["p", "修复选中状态出错的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3900"
+  }, "#3900"]]]]], ["li", ["p", "Upload"], ["ul", ["li", ["p", "修复 children 不能为 ", ["code", "null"], " 的问题。"]], ["li", ["p", "修复预览逻辑的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/commit/e552880c32aaa3f5b0fb09a5e1fb7454c24d5378"
+  }, "commit"]]]]], ["li", ["p", "修复 Badge 会覆盖其他组件的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3898"
+  }, "#3898"]]], ["li", ["p", "修复多行 Checkbox 样式不对齐的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3971"
+  }, "#3971"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/flashback313"
+  }, "@flashback313"]]], ["li", ["p", "修复 InputNumber 与其它表单控件不对齐的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3866#issuecomment-261148256"
+  }, "#3866(comment)"]]], ["li", ["p", "修复 ", ["code", "Menu.Divider"], " 样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3813"
+  }, "#3813"]]], ["li", ["p", "修复 Popover 直接内嵌 Checkbox 和 Radio 无效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3455"
+  }, "#3455"]]], ["li", ["p", "修复 Select combobox 高度异常问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3855"
+  }, "#3855"]]], ["li", ["p", "修复 Switch actived 后的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3838"
+  }, "#3838"]]], ["li", ["p", "修复 Transfer 搜索无结果时不展示 “Not Found” 提示的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3996"
+  }, "#3996"]]], ["li", ["p", "修复 TreeSelect 占位符的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3841"
+  }, "#3841"]]], ["li", ["p", "修复 TypeScript 编译报错的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3969"
+  }, "#3969"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/AlbertZheng"
+  }, "@AlbertZheng"]]], ["li", ["p", "修复表单反馈图标影响用户操作的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3891"
+  }, "#3891"]]]], ["h2", "2.4.3"], ["p", ["code", "2016-11-17"]], ["ul", ["li", ["p", "修复 ", ["code", "Anchor"], " 内部 querySelector 报错，并做了一些体验优化 。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3832"
+  }, "#3832"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3844"
+  }, "#3844"]]]], ["h2", "2.4.2"], ["p", ["code", "2016-11-13"]], ["ul", ["li", ["p", "修复 ", ["code", "Dropdown.Button"], " 不弹出的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3815"
+  }, "#3815"]]]], ["h2", "2.4.1"], ["p", ["code", "2016-11-11"]], ["ul", ["li", ["p", "修复 ", ["code", "2.4.0"], " 组件 index 文件丢失的问题。"]]], ["h2", "2.4.0"], ["p", ["code", "2016-11-11"]], ["ul", ["li", ["p", "调整了组件的导航结构。"]], ["li", ["p", "新增 ", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/anchor"
+  }, "Anchor"], " 锚点组件。"]], ["li", ["p", "整理了样式变量，修复 ", ["code", "@font-size-base"], " 和 ", ["code", "@text-color"], " 在部分组件无效的问题，新增 ", ["code", "@font-size-lg"], " ", ["code", "@text-color-secondary"], "，并移除了部分无用的变量。"]], ["li", ["p", ["code", "Transfer"], " 组件新增了受控属性 ", ["code", "selectedKeys"], "。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3729"
+  }, "#3729"]]], ["li", ["p", ["code", "Tag"], " 新增选中状态。"]], ["li", ["p", "修复 ", ["code", "Dropdown.Button"], " 不支持 ", ["code", "visible"], " 和 ", ["code", "onVisibleChange"], " 的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3779"
+  }, "#3779"]]], ["li", ["p", "修复 ", ["code", "DatePicker[showTime]`` 的"], "此刻` 按钮。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3748"
+  }, "#3748"]]], ["li", ["p", "修复 ", ["code", "Steps"], " 竖直方向的样式。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3760"
+  }, "#3760"]]], ["li", ["p", "修复 ", ["code", "Spin"], " 组件在 IE10+ 的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3755"
+  }, "#3755"]]], ["li", ["p", "修复 ", ["code", "Mention"], " 组件的 focus 逻辑. ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3801"
+  }, "#3801"]]], ["li", ["p", "修复 ", ["code", "Progress"], " 组件的动画问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3784"
+  }, "#3784"]]], ["li", ["p", "修复 ", ["code", "Select"], " 搜索时的丢失焦点问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3778"
+  }, "#3778"]]], ["li", ["p", "修复 ", ["code", "TimePicker"], " 不支持 ", ["code", "format=\"HH\""], " 等格式的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3793"
+  }, "#3793"]]], ["li", ["p", "修复 ", ["code", "Input"], " 的 ", ["code", "suffix"], " 部分区域中鼠标事件无法响应的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3714"
+  }, "#3714"]]], ["li", ["p", "优化了 ", ["code", "Table"], " 选择的性能。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3757"
+  }, "#3757"]]], ["li", ["p", "优化 ", ["code", "Carousel"], " 的默认样式。"]], ["li", ["p", "优化 ", ["code", "Checkbox"], " 和 ", ["code", "Radio"], " 的样式。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3590"
+  }, "#3590"]]], ["li", ["p", "修复 ", ["code", "DatePicker"], "、", ["code", "Form"], "、", ["code", "Table"], " 等组件的样式细节。"]]], ["h2", "2.3.2"], ["p", ["code", "2016-11-09"]], ["ul", ["li", ["p", "修复使用 ", ["code", "getFieldProps"], " 会导致死循环的问题。"]]], ["h2", "2.3.1"], ["p", ["code", "2016-11-07"]], ["ul", ["li", ["p", "修正上个版本缺少 ", ["code", "dist/antd.css"], " 的问题。"]]], ["h2", "2.3.0"], ["p", ["code", "2016-11-04"]], ["ul", ["li", ["p", "升级 normalize.css 到 5.0。"]], ["li", ["p", "package.json 的 main 换成了 ", ["code", "lib/index.js"], "。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3397"
+  }, "#3397"]]], ["li", ["p", "全新的 ", ["code", "Spin"], " 设计。"]], ["li", ["p", ["code", "TimePicker"], " 新增了 ", ["code", "addon"], " 以支持自定义的附加内容。"]], ["li", ["p", ["code", "Tree"], " 新增了 ", ["code", "onDragEnd"], "。"]], ["li", ["p", ["code", "Collapse"], " 新增了 ", ["code", "bordered"], "。"]], ["li", ["p", "优化 ", ["code", "Tabs"], " 切换时的动画效果。"]], ["li", ["p", "优化 ", ["code", "Radio"], " 和 ", ["code", "Checkbox"], " 在禁用和鼠标停留时的样式。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3590"
+  }, "#3590"]]], ["li", ["p", "优化 ", ["code", "Transfer"], " 的性能。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2860"
+  }, "#2860"]]], ["li", ["p", "修复 ", ["code", "Popover"], " 嵌套时的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3448"
+  }, "#3448"]]], ["li", ["p", "修复 ", ["code", "Transfer"], " 服务端渲染报错的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3686"
+  }, "#3686"]]], ["li", ["p", "修复 ", ["code", "Upload"], " ", ["code", "picture-card"], " 模式下新上传的图片不显示预览的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3706"
+  }, "#3706"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/denzw"
+  }, "@denzw"]]], ["li", ["p", "DatePicker"], ["ul", ["li", ["p", "在 ", ["code", "showTime"], " 模式下现在失去焦点也会触发 ", ["code", "onChange"], "。"]], ["li", ["p", ["code", "MonthPicker"], " 增加了 ", ["code", "monthCellContentRender"], " 和 ", ["code", "cellContentRender"], "。"]], ["li", ["p", ["code", "RangePicker"], " 现在可以手动输入时间了。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3718"
+  }, "#3718"]]], ["li", ["p", "新增了捷克语的翻译。"]]]], ["li", ["p", "Badge"], ["ul", ["li", ["p", "优化鼠标停留时超过 99 的数字显示。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3645"
+  }, "#3645"]]], ["li", ["p", "修复单独使用时会有移动动画的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3709"
+  }, "#3709"]]]]], ["li", ["p", "Mention"], ["ul", ["li", ["p", "修复会被 ", ["code", "Table"], " 遮住的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3588"
+  }, "#3588"]]], ["li", ["p", "新增 ", ["code", "getSuggestionContainer"], " 来指定容器。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3658"
+  }, "#3658"]]]]], ["li", ["p", "Tag"], ["ul", ["li", ["p", "废弃 ", ["code", "color"], " 属性。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3560"
+  }, "#3560"]]], ["li", ["p", "新增 ", ["code", "type"], "。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3560"
+  }, "#3560"]]], ["li", ["p", "新增 ", ["code", "checkable"], "。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3560"
+  }, "#3560"]]]]], ["li", ["p", "Radio.Group"], ["ul", ["li", ["p", "新增 ", ["code", "className"], "。"]], ["li", ["p", ["code", "children"], " 为 ", ["code", "null"], " 或 ", ["code", "undefined"], " 时现在会被忽略。"]]]], ["li", ["p", "Select"], ["ul", ["li", ["p", "新增 ", ["code", "tokenSeparators"], " 支持粘贴时自动分词。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2071"
+  }, "#2071"]]], ["li", ["p", "新增 ", ["code", "onFocus"], " 回调。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3587"
+  }, "#3587"]]], ["li", ["p", "修复 ", ["code", "combobox"], " 模式下选中项不能正确显示的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3401"
+  }, "#3401"]]]]]], ["h2", "2.2.1"], ["p", ["code", "2016-11-02"]], ["ul", ["li", ["p", "修复 Form 中 DatePicker", "[showtime]", "（受控）无法使用的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3665"
+  }, "#3665"]]]], ["h2", "2.2.0"], ["p", ["code", "2016-10-28"]], ["ul", ["li", ["p", "支持 TypeScript@2.0。", ["a", {
+    "title": null,
+    "href": "https://github.com/AlbertZheng"
+  }, "@AlbertZheng"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3358"
+  }, "#3358"]]], ["li", ["p", "不再强依赖于 React 特定版本。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3627"
+  }, "#3627"]]], ["li", ["p", "Alert 支持 ", ["code", "className"], " ", ["code", "style"], " 属性。"]], ["li", ["p", "DatePicker MonthPicker RangePicker 现在允许设置是否显示清除按钮。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3618"
+  }, "#3618"]]], ["li", ["p", "Form.Item 现在可以感知深层嵌套的表单域，以自动为其生成错误信息和状态。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3212"
+  }, "#3212"]]], ["li", ["p", "RangePicker 现在可以设置不可选的时间。", ["a", {
+    "title": null,
+    "href": "https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date"
+  }, "#"]]], ["li", ["p", "Switch"], ["ul", ["li", ["p", "宽度现在会随着 ", ["code", "checkedChildren/unCheckedChildren"], " 自动调整。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3380"
+  }, "#3380"]]], ["li", ["p", "优化切换动画。"]]]], ["li", ["p", "Upload 现在可以 ", ["a", {
+    "title": null,
+    "href": "https://github.com/react-component/upload#customrequest"
+  }, "自定义上传方式"], "。", ["a", {
+    "title": null,
+    "href": "https://github.com/edgji"
+  }, "@edgji"]]], ["li", ["p", "Icon"], ["ul", ["li", ["p", "新增 ", ["code", "bulb"], " ", ["code", "select"], " ", ["code", "like-o"], " ", ["code", "dislike-o"], "。"]], ["li", ["p", "调整 ", ["code", "loading"], " ", ["code", "like"], " ", ["code", "dislike"], "。"]]]], ["li", ["p", "优化 Card DatePicker Icon Table 的 TypeScript 定义。", ["a", {
+    "title": null,
+    "href": "https://github.com/infeng"
+  }, "@infeng"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3468"
+  }, "3468"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3603"
+  }, "#3603"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3531"
+  }, "#3531"]]], ["li", ["p", "修复 Cascader ", ["code", "defaultValue"], " 失效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3470"
+  }, "#3470"]]], ["li", ["p", "修复在一行内同时使用 Button Input DatePicker Select 时对齐的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3481"
+  }, "#3481"]]], ["li", ["p", "DatePicker"], ["ul", ["li", ["p", "修复设置 ", ["code", "DatePicker[showTime]"], " 后 ", ["code", "onChange"], " 事件触发时机问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3523"
+  }, "#3523"]]]]], ["li", ["p", "修复 Dropdown.Button disabled 后仍然响应操作的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3535"
+  }, "#3535"]]], ["li", ["p", "Menu"], ["ul", ["li", ["p", "修复服务端渲染问题，感谢 ", ["a", {
+    "title": null,
+    "href": "https://github.com/xpcode"
+  }, "@xpcode"], " 定位问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2061"
+  }, "#2061"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2406"
+  }, "#2406"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3293"
+  }, "#3293"]]], ["li", ["p", "修复 children 不能为 ", ["code", "null"], " 的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3599"
+  }, "#3599"]]]]], ["li", ["p", "修复 message 加载状态无动画的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3536"
+  }, "#3536"]]], ["li", ["p", "Form"], ["ul", ["li", ["p", "修复 ", ["code", "Form[inline]"], " 与 ", ["code", "Input[addonBefore|addonAfter]"], " 一起使用时的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3524"
+  }, "#3524"]]], ["li", ["p", "修复 Form.Item 内 Radio.Button 样式问题。"]], ["li", ["p", "修复 Form.Item 内搜索按钮的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3630"
+  }, "#3630"]]], ["li", ["p", "修复用户无输入时 Form.Item 识别为校验成功的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3613"
+  }, "#3613"]]]]], ["li", ["p", "当 ", ["code", "Popover[title]"], " 没有设置时，不再限制 Popover 的最小宽度。"]], ["li", ["p", "Table"], ["ul", ["li", ["p", "修复固定表头在没有数据情况下的样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3567"
+  }, "#3567"]]], ["li", ["p", "修复无数据时会覆盖 SubMenu 的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3521"
+  }, "#3521"]]]]], ["li", ["p", "Tabs"], ["ul", ["li", ["p", "修复卡片叶签头部高度与设计稿不一致的问题。"]], ["li", ["p", "修复 TabPane 的高度会被同级 TabPane 撑高的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3304"
+  }, "#3304"]]]]], ["li", ["p", "修复 ", ["code", "TreeSelect[showSearch]"], " 样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3520"
+  }, "#3520"]]]], ["h2", "2.1.0"], ["p", ["code", "2016-10-16"]], ["ul", ["li", ["p", "Icon 现在支持旋转动画。"]], ["li", ["p", "Tabs 现在可以禁用切换动画。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3324"
+  }, "#3324"]]], ["li", ["p", "新增西班牙语的 localization 支持。@Danjavia"]], ["li", ["p", "更新俄语的 localization 文案。@plandem"]], ["li", ["p", "新增 AutoComplete", "[onselect]", " 回调。"]], ["li", ["p", "优化 Modal 样式细节。"]], ["li", ["p", "优化 Tooltip 动画。"]], ["li", ["p", "优化 Transfer 按钮的样式。"]], ["li", ["p", "优化 Tree 的样式细节。"]], ["li", ["p", "整理和修复了部分 less 变量。"]], ["li", ["p", "修复服务端渲染时全量引入 antd 报错的问题。"]], ["li", ["p", "修复 Affix 与 BackTop 的服务端渲染问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3283"
+  }, "#3283"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3343"
+  }, "#3343"]]], ["li", ["p", "修复 Card", "[title]", " 内无法使用 ", ["code", "h3"], " 之类的标签的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3388"
+  }, "#3388"]]], ["li", ["p", "修复 Cascader 搜索模式与浏览器自动完成有冲突的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3350"
+  }, "#3350"]]], ["li", ["p", "DatePicker"], ["ul", ["li", ["p", "修复设置 ", ["code", "showTime"], " 后，", ["code", "onChange"], " 重复触发的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3376"
+  }, "#3376"]]], ["li", ["p", "修复浮层与 Trigger 日期格式不一致的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3405"
+  }, "#3405"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3298"
+  }, "#3298"]]], ["li", ["p", "修复与 TimePicker 样式冲突问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3312"
+  }, "#3312"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3307"
+  }, "#3307"]]]]], ["li", ["p", "修复 Form.Item 标签文案过长溢出的问题。"]], ["li", ["p", "修复 Icon 在 Safari 下会出现边框的问题。"]], ["li", ["p", "修复 InputNubmer 键盘事件死循环问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3239"
+  }, "#3239"]]], ["li", ["p", "修复 Popover 箭头样式问题。"]], ["li", ["p", "修复 Popover 和 Popconfirm 的 ", ["code", "arrowPointAtCenter"], " 无效的问题。"]], ["li", ["p", "Select"], ["ul", ["li", ["p", "修复样式重复引入的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3376"
+  }, "#3376"]]], ["li", ["p", "修复 ", ["code", "notFoundContent"], " 无法置空的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3345"
+  }, "#3345"]]], ["li", ["p", "修复 Table 内使用 Select", "[showsearch]", " 后宽度会跳动的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3413"
+  }, "#3413"]]]]], ["li", ["p", "修复 Table 边框线与页头页脚冲突的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3301"
+  }, "#3301"]]], ["li", ["p", "修复 TabPane 高度不随内容变化的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3377"
+  }, "#3377"]]], ["li", ["p", "修复 Transfer", "[titles]", " 不受 LocaleProvider 控制的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3264"
+  }, "#3264"]]], ["li", ["p", "Upload"], ["ul", ["li", ["p", "修复用户自定义 ", ["code", "onRemove"], " 事件会覆盖默认行为的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3317"
+  }, "#3317"]]], ["li", ["p", "修复图片卡片样式问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3316"
+  }, "#3316"]]]]], ["li", ["p", "修复项目构建时 moment locales 找不到的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3204"
+  }, "#3204"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3411"
+  }, "#3411"]]]], ["h2", "2.0.1"], ["p", ["code", "2016-10-01"]], ["ul", ["li", ["p", "修复无法调用 react-slick 方法的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3164"
+  }, "#3164"]]], ["li", ["p", "修复 Steps.Step", "[icon]", " 不支持 React.ReactNode 的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3159"
+  }, "#3159"]]], ["li", ["p", "修复 Affix 不支持服务端渲染的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3216"
+  }, "#3216"]]], ["li", ["p", "修复 Mention 不支持 ", ["code", "onSelect"], " ", ["code", "placeholder"], " 的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3236"
+  }, "#3236"], " ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3226"
+  }, "#3226"]]], ["li", ["p", "修复 Transfer 与 ", ["code", "getFieldDecorator"], " 一起使用时的报错问题。"]], ["li", ["p", "修复 LocaleProvider 对时间组件无效的问题。"]], ["li", ["p", "修复 Cascader 搜索模式搜索文字显示不了的问题。"]], ["li", ["p", "修复 Spin 动画与文案整体不垂直居中的问题。"]], ["li", ["p", "修复 RangePicker Modal Tag Progress 等组件样式问题。"]]], ["h2", "2.0.0"], ["p", ["code", "2016-09-28"]], ["p", "很高兴的通知各位，经过四个月时间的紧密开发，", ["code", "antd@2.0.0"], " 终于发布了。这个版本我们重构了底层代码，持续完善现有组件功能和优化细节，并提供了英文版的文档，其中很多都来自社区的贡献，无法一一感谢，欢迎各位持续关注和鞭策。在升级过程中遇到任何问题，请及时 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues"
+  }, "反馈给我们"], "。"], ["h3", "2.x 主要变化"], ["ul", ["li", ["p", "开发语言改为 TypeScript，提供 ", ["strong", "官方支持的 ", ["code", ".d.ts"], " 文件"], "，感谢 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/1846"
+  }, "#1846"], " 中所有参与到这次重构的人以及后期 @infeng 对其的完善。"]], ["li", ["p", ["strong", "新增英文文档"], "， 以后将同时提供中英双语文档，感谢 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/1471"
+  }, "#1471"], " 里所有参与到翻译和审阅工作中的人。"]], ["li", ["p", "时间类组件 DatePicker、TimePicker、Calendar 等的底层 ", ["strong", "使用 ", ["a", {
+    "title": null,
+    "href": "http://momentjs.com/"
+  }, "moment"], " 替换 ", ["a", {
+    "title": null,
+    "href": "github.com/yiminghe/gregorian-calendar"
+  }, "gregorian-calendar"]], "。"]], ["li", ["p", "全新设计的 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/icon/"
+  }, "图标"], "。"]], ["li", ["p", "新增提及组件 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/mention/"
+  }, "Mention"], "。"]], ["li", ["p", "新增自动完成组件 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/auto-complete/"
+  }, "AutoComplete"], "。"]], ["li", ["p", "Form 新增 ", ["code", "getFieldDecorator"], " 作为 ", ["code", "getFieldProps"], " 的替代，对于不正确的使用方式 ", ["code", "getFieldDecorator"], " 会给出提示，可以降低踩坑的概率。相关讨论见 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/1533"
+  }, "#1533"], "。"]], ["li", ["p", "Table 支持 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/table/#components-table-demo-grouping-columns"
+  }, "表头分组"], "。@yesmeck"]], ["li", ["p", "完全移除 ", ["code", "antd@1.x"], " 中已经废弃的 QueueAnim、Validation、Form.ValueMixin、Progress.Line、Progress.Circle、Popover", "[overlay]", " 及 Slider", "[marks]", " 对数组的支持。"]]], ["h3", "2.x 不兼容改动"], ["blockquote", ["p", "建议从 ", ["code", "1.x"], " 升级时，直接升级到 ", ["code", "2.x"], " 的最新版本。"]], ["p", "此版本有部分不兼容的改动，升级时确保修改相应的使用代码。"], ["ul", ["li", ["p", "时间类组件的 ", ["code", "value"], " 和 ", ["code", "defaultValue"], " 不再支持 ", ["code", "String/Date"], " 类型，请使用 ", ["a", {
+    "title": null,
+    "href": "http://momentjs.com/"
+  }, "moment"], "。"], ["pre", {
+    "lang": "diff",
+    "highlighted": "<span class=\"token deleted\">- &lt;TimePicker defaultValue=\"12:08:23\" /></span>\n<span class=\"token inserted\">+ &lt;TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} /></span>\n\n<span class=\"token deleted\">- &lt;DatePicker defaultValue=\"2015/01/01\" /></span>\n<span class=\"token inserted\">+ &lt;DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} /></span>\n\n<span class=\"token deleted\">- &lt;Calendar defaultValue={new Date('2010-10-10')} /></span>\n<span class=\"token inserted\">+ &lt;Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} /></span>"
+  }, ["code", "- <TimePicker defaultValue=\"12:08:23\" />\n+ <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />\n\n- <DatePicker defaultValue=\"2015/01/01\" />\n+ <DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} />\n\n- <Calendar defaultValue={new Date('2010-10-10')} />\n+ <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />"]]], ["li", ["p", "时间类组件的 ", ["code", "onChange"], " 和 ", ["code", "onPanelChange"], " 及其他回调函数中为 ", ["code", "Date/GregorianCalendar"], " 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 ", ["a", {
+    "title": null,
+    "href": "http://momentjs.com/docs/"
+  }, "moment 的 API 文档"], " 和 ", ["a", {
+    "title": null,
+    "href": "https://github.com/yiminghe/gregorian-calendar"
+  }, "gregorian-calendar 的文档"], " 进行修改。你也可以参考这个 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/commit/4026221d451b246956983bb42140142d4a48b7d7"
+  }, "commit"], " 来进行修改。"], ["p", "由于 ", ["code", "JSON.stringify(date: moment)"], " 返回的值会丢失时区设置，所以要先使用 ", ["code", ".format"], " 把日期转成字符串，相关 issue 见 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3082"
+  }, "#3082"], "："], ["pre", {
+    "lang": "js",
+    "highlighted": "<span class=\"token function\">handleSubmit</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span> <span class=\"token punctuation\">{</span>\n  <span class=\"token keyword\">const</span> values <span class=\"token operator\">=</span> <span class=\"token keyword\">this</span><span class=\"token punctuation\">.</span>props<span class=\"token punctuation\">.</span>form<span class=\"token punctuation\">.</span><span class=\"token function\">getFieldsValue</span><span class=\"token punctuation\">(</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n  values<span class=\"token punctuation\">.</span>date <span class=\"token operator\">=</span> values<span class=\"token punctuation\">.</span>date<span class=\"token punctuation\">.</span><span class=\"token function\">format</span><span class=\"token punctuation\">(</span><span class=\"token string\">'YYYY-MM-DD HH:mm:ss'</span><span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span> <span class=\"token comment\" spellcheck=\"true\">// 或其它格式</span>\n  <span class=\"token keyword\">const</span> data <span class=\"token operator\">=</span> JSON<span class=\"token punctuation\">.</span><span class=\"token function\">stringify</span><span class=\"token punctuation\">(</span>values<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>\n  <span class=\"token comment\" spellcheck=\"true\">// 发送 data 到服务器</span>\n<span class=\"token punctuation\">}</span>"
+  }, ["code", "handleSubmit() {\n  const values = this.props.form.getFieldsValue();\n  values.date = values.date.format('YYYY-MM-DD HH:mm:ss'); // 或其它格式\n  const data = JSON.stringify(values);\n  // 发送 data 到服务器\n}"]]], ["li", ["p", "时间类组件与表单校验一起使用时，", ["code", "type: 'date'"], " 改为 ", ["code", "type: 'object'"], "。"]], ["li", ["p", "时间类组件的 ", ["code", "format"], " 属性也发生了变化，从 ", ["a", {
+    "title": null,
+    "href": "https://github.com/yiminghe/gregorian-calendar-format#api"
+  }, "gregorian-calendar-format 的格式"], " 变化为与 ", ["a", {
+    "title": null,
+    "href": "http://momentjs.com/docs/#/parsing/string-format/"
+  }, "moment 的格式"], "，例如原来的 ", ["code", "yyyy-MM-dd"], " 将变为 ", ["code", "YYYY-MM-DD"], "。"]], ["li", ["p", "Breadcrumb 移除 ", ["code", "linkRender"], " 和 ", ["code", "nameRender"], "，请使用 ", ["code", "itemRender"], "。"]], ["li", ["p", "Menu 移除 ", ["code", "onClose"], " ", ["code", "onOpen"], "，请使用 ", ["code", "onOpenChange"], "。API 差异较大，请先研究 ", ["a", {
+    "title": null,
+    "href": "http://beta.ant.design/components/menu/#components-menu-demo-sider-current"
+  }, "demo"], "。"]], ["li", ["p", "Table 移除列分页功能，请使用 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/table/#components-table-demo-fixed-columns"
+  }, "固定列"], "。"]], ["li", ["p", "Popover 移除 ", ["code", "overlay"], " ，请使用 ", ["code", "content"], "。"]]], ["p", "以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。"], ["ul", ["li", ["p", "Form 废弃 ", ["code", "getFieldProps"], "，请使用 ", ["code", "getFieldDecorator"], "："], ["pre", {
+    "lang": "diff",
+    "highlighted": "<span class=\"token deleted\">-  &lt;Input placeholder=\"text\" {...getFieldProps('userName', { ... })} /></span>\n<span class=\"token inserted\">+  {getFieldDecorator('userName', { ... })(</span>\n<span class=\"token inserted\">+    &lt;Input placeholder=\"text\" /></span>\n<span class=\"token inserted\">+  )}</span>"
+  }, ["code", "-  <Input placeholder=\"text\" {...getFieldProps('userName', { ... })} />\n+  {getFieldDecorator('userName', { ... })(\n+    <Input placeholder=\"text\" />\n+  )}"]], ["p", "相关讨论可以看 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/1533"
+  }, "#1533"], "。"]], ["li", ["p", "DatePicker 废弃 ", ["code", "toggleOpen"], "，请使用 ", ["code", "onOpenChange"], "："], ["pre", {
+    "lang": "diff",
+    "highlighted": "<span class=\"token deleted\">- handleToggleOpen({ open }) {</span>\n<span class=\"token inserted\">+ handleOpenChange(open) {</span>\n  ...\n}"
+  }, ["code", "- handleToggleOpen({ open }) {\n+ handleOpenChange(open) {\n  ...\n}"]]]], ["h3", "2.x Bug 修复"], ["ul", ["li", ["p", "修复 Dropdown.Button ", ["code", "disabled"], " 属性无效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3070"
+  }, "#3070"]]], ["li", ["p", "修复 Form.create ", ["code", "withRef"], " 选项失效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2843"
+  }, "#2843"]]], ["li", ["p", "修复 Menu inline 模式下子菜单展开的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2701"
+  }, "#2701"]]], ["li", ["p", "修复 Modal.confirm 之类的弹窗在异步调用时按钮仍可点击的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2684"
+  }, "#2684"]]], ["li", ["p", "修复 DatePicker", "[showtime]", " 参数中的 ", ["code", "format"], " 失效的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/3123"
+  }, "#3123"]]], ["li", ["p", "修复 Table", "[datasource]", " 中的项的 key 为 ", ["code", "0"], " 时识别错误的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/pull/3166"
+  }, "#3166"], " @noonnightstorm"]], ["li", ["p", "修复 Tree.Node 无子节点时仍然显示箭头的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2616"
+  }, "#2616"]]], ["li", ["p", "修复 Tree.Node 箭头隐藏后鼠标 hover 上去光标仍会发生变化的问题。", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/issues/2748"
+  }, "#2748"]]]], ["h3", "2.x 其他改进"], ["ul", ["li", ["p", "Alert 新增 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/alert/#components-alert-demo-banner"
+  }, ["code", "banner"], " 模式"], "。"]], ["li", ["p", "BackTop 增加回到顶部的动画效果。"]], ["li", ["p", "Badge 新增 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/badge/#components-badge-demo-status"
+  }, "状态点模式"], "。"]], ["li", ["p", "Cascader 新增 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/cascader/#components-cascader-demo-search"
+  }, "搜索功能"], "。"]], ["li", ["p", "Checkbox 新增 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/checkbox/#components-checkbox-demo-check-all"
+  }, "indeterminate 状态"], "。"]], ["li", ["p", "Form 新增 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/form/#components-form-demo-validate-customized"
+  }, "垂直布局"], "。"]], ["li", ["p", "InputNumber 现在支持长按。", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/input-number/#components-input-number-demo-basic"
+  }, "#"]]], ["li", ["p", "notification 支持 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/notification/#components-notification-demo-custom-icon"
+  }, "自定义 icon"], "。"]], ["li", ["p", "Spin 现在允许 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/spin/#components-spin-demo-tip"
+  }, "自定义文案与动画共存"], "。@jerrybendy"]], ["li", ["p", "Transfer 现在可以监听用户选择了哪些选项。", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/transfer/#components-transfer-demo-basic"
+  }, "#"]]], ["li", ["p", "Transfer 现在可以定义哪些选项是 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/transfer/#components-transfer-demo-basic"
+  }, "不可选择的"], "。"]], ["li", ["p", "优化 Alert 和 notification 的样式。"]], ["li", ["p", "优化 Modal.confirm 之类的弹窗的键盘交互。@Dafrok"]], ["li", ["p", "优化 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/date-picker/#components-date-picker-demo-time"
+  }, "DatePicker 的时间选择"], " 交互。"]], ["li", ["p", "优化 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/components/spin/#components-spin-demo-nested"
+  }, "Spin 状态切换"], " 时的效果。"]], ["li", ["p", "更新 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/commit/2f308b0f995cfcb2a3c8feb1e35ffd3f0bf93cfc"
+  }, "font-family"], "。"]]], ["h3", "2.x 相关工具发布"], ["ul", ["li", ["p", "新增配套网站 ", ["a", {
+    "title": null,
+    "href": "http://library.ant.design/"
+  }, "AntD Library"], "，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。"]], ["li", ["p", ["code", "babel-plugin-antd"], " 更名为 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/babel-plugin-import"
+  }, "babel-plugin-import"], "，标志着该插件将作为一个通用的按需加载方案存在，而不再是 ", ["code", "antd"], " 专有。"], ["p", "请更新 ", ["code", "package.json"], "："], ["pre", {
+    "lang": "diff",
+    "highlighted": "{\n  \"devDependencies\": {\n<span class=\"token deleted\">-   \"babel-plugin-antd\": \"^0.x.x\",</span>\n<span class=\"token inserted\">+   \"babel-plugin-import\": \"^1.0.0\",</span>\n  }\n}"
+  }, ["code", "{\n  \"devDependencies\": {\n-   \"babel-plugin-antd\": \"^0.x.x\",\n+   \"babel-plugin-import\": \"^1.0.0\",\n  }\n}"]], ["p", "同时更新 ", ["code", ".babelrc"], " 或你在其它地方对其的配置："], ["pre", {
+    "lang": "diff",
+    "highlighted": "{\n<span class=\"token deleted\">-  \"plugins\": [[\"antd\", { style: \"css\" }]]</span>\n<span class=\"token inserted\">+  \"plugins\": [[\"import\", { libraryName: \"antd\", style: \"css\" }]]</span>\n}"
+  }, ["code", "{\n-  \"plugins\": [[\"antd\", { style: \"css\" }]]\n+  \"plugins\": [[\"import\", { libraryName: \"antd\", style: \"css\" }]]\n}"]]], ["li", ["p", ["a", {
+    "title": null,
+    "href": "https://github.com/dvajs/dva"
+  }, "dva@1.0.0"], " 也已经发布，并推荐 ", ["a", {
+    "title": null,
+    "href": "http://ant.design/docs/react/practical-projects"
+  }, "在实战项目中使用"], "。"]], ["li", ["p", "脚手架工具推荐使用 ", ["a", {
+    "title": null,
+    "href": "https://github.com/dvajs/dva-cli"
+  }, "dva-cli"], "，原来的 ", ["code", "antd-init"], " 以后仅会用于学习以及 demo。"]]], ["h2", "1.11.4"], ["p", "去 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md"
+  }, "GitHub"], " 查看 ", ["code", "0.x"], " 到 ", ["code", "1.x"], " 的 Change Log。"]],
   "meta": {
-    "order": 0,
-    "title": "顶部导航",
-    "filename": "docs\\spec\\layout\\demo\\top.md"
-  }
+    "order": 6,
+    "title": "更新日志",
+    "toc": false,
+    "timeline": true,
+    "filename": "changelog.md"
+  },
+  "description": ["section", ["p", "如果需要查看 ", ["code", "2.0.0"], " 之前的更新日志，请移步 ", ["a", {
+    "title": null,
+    "href": "https://github.com/ant-design/ant-design/releases?after=2.0.0"
+  }, "GitHub"], "。"]]
 };
+;
 
-
-
-
-
-
-
-
-
-
-
-unctuation\">&lt;</span>Menu.Item</span> <span class=\"token attr-name\">key</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>12<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>选项<span class=\"token number\">12</span><span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu.Item</span><span class=\"token punctuation\">></span></span>\n              <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>SubMenu</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>Menu</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>aside</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-content<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">style</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">{</span> height<span class=\"token punctuation\">:</span> <span class=\"token number\">240</span> <span class=\"token punctuation\">}</span><span class=\"token punctuation\">}</span></span><span class=\"token punctuation\">></span></span>\n              <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">style</span><span class=\"token script language-javascript\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">{</span><span class=\"token punctuation\">{</span>clear<span class=\"token punctuation\">:</span> <span class=\"token string\">'both'</span><span class=\"token punctuation\">}</span><span class=\"token punctuation\">}</span></span><span class=\"token punctuation\">></span></span>内容区域<span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n            <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n          <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;</span>div</span> <span class=\"token attr-name\">className</span><span class=\"token attr-value\"><span class=\"token punctuation\">=</span><span class=\"token punctuation\">\"</span>ant-layout-footer<span class=\"token punctuation\">\"</span></span><span class=\"token punctuation\">></span></span>\n        Ant Design 版权所有 © <span class=\"token number\">2015</span> 由蚂蚁金服体验技术部支持\n        <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n      <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n    <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>div</span><span class=\"token punctuation\">></span></span>\n  <span class=\"token tag\"><span class=\"token tag\"><span class=\"token punctuation\">&lt;/</span>BrowserDemo</span><span class=\"token punctuation\">></span></span>\n<span class=\"token punctuation\">,</span> mountNode<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>"
-  }, ["code", "import { Menu, Breadcrumb, Icon } from 'antd';\nimport BrowserDemo from 'site/theme/template/BrowserDemo';\nconst SubMenu = Menu.SubMenu;\n\nReactDOM.render(\n  <BrowserDemo>\n    <div className=\"ant-layout-topaside\">\n      <div className=\"ant-layout-header\">\n        <div className=\"ant-layout-wrapper\">\n          <div className=\"ant-layout-logo\"></div>\n          <Menu theme=\"dark\" mode=\"horizontal\"\n            defaultSelectedKeys={['2']} style={{lineHeight: '64px'}}>\n            <Menu.Item key=\"1\">导航一</Menu.Item>\n            <Menu.Item key=\"2\">导航二</Menu.Item>\n            <Menu.Item key=\"3\">导航三</Menu.Item>\n          </Menu>\n        </div>\n      </div>\n      <div className=\"ant-layout-subheader\">\n        <div className=\"ant-layout-wrapper\">\n          <Menu mode=\"horizontal\"\n            defaultSelectedKeys={['1']} style={{marginLeft: 124}}>\n            <Menu.Item key=\"1\">二级导航</Menu.Item>\n            <Menu.Item key=\"2\">二级导航</Menu.Item>\n            <Menu.Item key=\"3\">二级导航</Menu.Item>\n          </Menu>\n        </div>\n      </div>\n      <div className=\"ant-layout-wrapper\">\n        <div className=\"ant-layout-breadcrumb\">\n          <Breadcrumb>\n            <Breadcrumb.Item>首页</Breadcrumb.Item>\n            <Breadcrumb.Item>应用列表</Breadcrumb.Item>\n            <Breadcrumb.Item>某应用</Breadcrumb.Item>\n          </Breadcrumb>\n        </div>\n        <div className=\"ant-layout-container\">\n          <aside className=\"ant-layout-sider\">\n            <Menu mode=\"inline\" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>\n              <SubMenu key=\"sub1\" title={<span><Icon type=\"user\" />导航一</span>}>\n                <Menu.Item key=\"1\">选项1</Menu.Item>\n                <Menu.Item key=\"2\">选项2</Menu.Item>\n                <Menu.Item key=\"3\">选项3</Menu.Item>\n                <Menu.Item key=\"4\">选项4</Menu.Item>\n              </SubMenu>\n              <SubMenu key=\"sub2\" title={<span><Icon type=\"laptop\" />导航二</span>}>\n                <Menu.Item key=\"5\">选项5</Menu.Item>\n                <Menu.Item key=\"6\">选项6</Menu.Item>\n                <Menu.Item key=\"7\">选项7</Menu.Item>\n                <Menu.Item key=\"8\">选项8</Menu.Item>\n              </SubMenu>\n              <SubMenu key=\"sub3\" title={<span><Icon type=\"notification\" />导航三</span>}>\n                <Menu.Item key=\"9\">选项9</Menu.Item>\n                <Menu.Item key=\"10\">选项10</Menu.Item>\n                <Menu.Item key=\"11\">选项11</Menu.Item>\n                <Menu.Item key=\"12\">选项12</Menu.Item>\n              </SubMenu>\n            </Menu>\n          </aside>\n          <div className=\"ant-layout-content\">\n            <div style={{ height: 240 }}>\n              <div style={{clear: 'both'}}>内容区域</div>\n            </div>\n          </div>\n        </div>\n        <div className=\"ant-layout-footer\">\n        Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持\n        </div>\n      </div>\n    </div>\n  </BrowserDemo>\n, mountNode);"]], ["pre", {
-    "lang": "css",
-    "highlighted": "<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">100%</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-wrapper</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">padding</span><span class=\"token punctuation\">:</span> <span class=\"token number\">0</span> <span class=\"token number\">50</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-header</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#404040</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-logo</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> <span class=\"token number\">120</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">32</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#333</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">border-radius</span><span class=\"token punctuation\">:</span> <span class=\"token number\">6</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">16</span>px <span class=\"token number\">28</span>px <span class=\"token number\">16</span>px <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">float</span><span class=\"token punctuation\">:</span> left<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-subheader</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">48</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">border-bottom</span><span class=\"token punctuation\">:</span> <span class=\"token number\">1</span>px solid <span class=\"token hexcode\">#e9e9e9</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#fff</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-breadcrumb</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">7</span>px <span class=\"token number\">0</span> -<span class=\"token number\">17</span>px <span class=\"token number\">24</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-container</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#fff</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">24</span>px <span class=\"token number\">0</span> <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> relative<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">padding</span><span class=\"token punctuation\">:</span> <span class=\"token number\">24</span>px <span class=\"token number\">0</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">overflow</span><span class=\"token punctuation\">:</span> hidden<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-sider</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> <span class=\"token number\">224</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">float</span><span class=\"token punctuation\">:</span> left<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-content</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">border-left</span><span class=\"token punctuation\">:</span> <span class=\"token number\">1</span>px solid <span class=\"token hexcode\">#e9e9e9</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">padding</span><span class=\"token punctuation\">:</span> <span class=\"token number\">0</span> <span class=\"token number\">24</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">overflow</span><span class=\"token punctuation\">:</span> auto<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">position</span><span class=\"token punctuation\">:</span> relative<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">left</span><span class=\"token punctuation\">:</span> -<span class=\"token number\">1</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-topaside</span> <span class=\"token class\">.ant-layout-footer</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">line-height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">text-align</span><span class=\"token punctuation\">:</span> center<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">font-size</span><span class=\"token punctuation\">:</span> <span class=\"token number\">12</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#999</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"
-  }, ["code", ".ant-layout-topaside {\n  height: 100%;\n}\n\n.ant-layout-topaside .ant-layout-wrapper {\n  padding: 0 50px;\n}\n\n.ant-layout-topaside .ant-layout-header {\n  background: #404040;\n  height: 64px;\n}\n\n.ant-layout-topaside .ant-layout-logo {\n  width: 120px;\n  height: 32px;\n  background: #333;\n  border-radius: 6px;\n  margin: 16px 28px 16px 0;\n  float: left;\n}\n\n.ant-layout-topaside .ant-layout-subheader {\n  height: 48px;\n  border-bottom: 1px solid #e9e9e9;\n  background: #fff;\n}\n\n.ant-layout-topaside .ant-layout-breadcrumb {\n  margin: 7px 0 -17px 24px;\n}\n\n.ant-layout-topaside .ant-layout-container {\n  background: #fff;\n  margin: 24px 0 0;\n  position: relative;\n  padding: 24px 0;\n  overflow: hidden;\n}\n\n.ant-layout-topaside .ant-layout-sider {\n  width: 224px;\n  float: left;\n}\n\n.ant-layout-topaside .ant-layout-content {\n  border-left: 1px solid #e9e9e9;\n  padding: 0 24px;\n  overflow: auto;\n  position: relative;\n  left: -1px;\n}\n\n.ant-layout-topaside .ant-layout-footer {\n  height: 64px;\n  line-height: 64px;\n  text-align: center;\n  font-size: 12px;\n  color: #999;\n}"]]],
-  "meta": {
-    "order": 1,
-    "title": "顶部导航 + 侧边栏",
-    "filename": "docs\\spec\\layout\\demo\\top-aside.md"
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
   }
-};
+}();
 
-
-
-
-
-
-
-
-
-
-
-x<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">transition</span><span class=\"token punctuation\">:</span> all <span class=\"token number\">0.3</span>s ease<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-aside</span> <span class=\"token class\">.ant-layout-container</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">margin</span><span class=\"token punctuation\">:</span> <span class=\"token number\">24</span>px <span class=\"token number\">16</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-aside</span> <span class=\"token class\">.ant-layout-content</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#fff</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">padding</span><span class=\"token punctuation\">:</span> <span class=\"token number\">24</span>px<span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>\n\n<span class=\"token selector\"><span class=\"token class\">.ant-layout-aside</span> <span class=\"token class\">.ant-layout-footer</span> </span><span class=\"token punctuation\">{</span>\n  <span class=\"token property\">height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">line-height</span><span class=\"token punctuation\">:</span> <span class=\"token number\">64</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">text-align</span><span class=\"token punctuation\">:</span> center<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">font-size</span><span class=\"token punctuation\">:</span> <span class=\"token number\">12</span>px<span class=\"token punctuation\">;</span>\n  <span class=\"token property\">color</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#999</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">background</span><span class=\"token punctuation\">:</span> <span class=\"token hexcode\">#fff</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">border-top</span><span class=\"token punctuation\">:</span> <span class=\"token number\">1</span>px solid <span class=\"token hexcode\">#e9e9e9</span><span class=\"token punctuation\">;</span>\n  <span class=\"token property\">width</span><span class=\"token punctuation\">:</span> <span class=\"token number\">100%</span><span class=\"token punctuation\">;</span>\n<span class=\"token punctuation\">}</span>"
-  }, ["code", ".ant-layout-aside {\n  position: relative;\n  min-height: 100%;\n}\n\n.ant-layout-aside .ant-layout-logo {\n  width: 150px;\n  height: 32px;\n  background: #333;\n  border-radius: 6px;\n  margin: 16px 24px 16px 28px;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside-collapse .ant-layout-logo {\n  width: 32px;\n  margin: 16px;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside .ant-layout-sider {\n  width: 224px;\n  background: #404040;\n  position: absolute;\n  overflow: visible;\n  padding-bottom: 24px;\n  height: 100%;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside-collapse .ant-layout-sider {\n  width: 64px;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside .ant-layout-sider > .ant-menu {\n  margin-bottom: 20px;\n}\n\n.ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item {\n  margin: 16px 0;\n}\n\n.ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {\n  vertical-align: baseline;\n  display: inline-block;\n}\n\n.ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {\n  transition: font-size .3s;\n}\n\n.ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item {\n  transition: all 0s ease;\n}\n\n.ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {\n  font-size: 16px;\n  display: inline-block;\n}\n\n.ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {\n  display: none;\n}\n\n.ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item:hover {\n  background: #2db7f5;\n  color: #fff;\n  transition: all 0s ease;\n}\n\n.ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item:hover .nav-text {\n  display: inline-block;\n  vertical-align: top;\n  background: #2db7f5;\n  color: #fff;\n  padding-right: 16px;\n  border-radius: 0 5px 5px 0;\n}\n\n/* 实际使用中需要改成 position: fixed */\n.ant-layout-aside .ant-aside-action {\n  height: 42px;\n  width: 224px;\n  position: absolute;\n  bottom: 0;\n  background: #656565;\n  color: #fff;\n  text-align: center;\n  line-height: 42px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside-collapse .ant-aside-action {\n  width: 64px;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside .ant-layout-header {\n  background: #fff;\n  height: 64px;\n  border-bottom: 1px solid #e9e9e9;\n}\n\n.ant-layout-aside .ant-layout-breadcrumb {\n  margin: 7px 0 -17px 24px;\n}\n\n.ant-layout-aside .ant-layout-main {\n  margin-left: 224px;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside-collapse .ant-layout-main {\n  margin-left: 64px;\n  transition: all 0.3s ease;\n}\n\n.ant-layout-aside .ant-layout-container {\n  margin: 24px 16px;\n}\n\n.ant-layout-aside .ant-layout-content {\n  background: #fff;\n  padding: 24px;\n}\n\n.ant-layout-aside .ant-layout-footer {\n  height: 64px;\n  line-height: 64px;\n  text-align: center;\n  font-size: 12px;\n  color: #999;\n  background: #fff;\n  border-top: 1px solid #e9e9e9;\n  width: 100%;\n}"]]],
+;olid #e9e9e9;\n  width: 100%;\n}"]]],
   "meta": {
     "order": 4,
     "title": "可收起展开的侧边导航",
     "filename": "docs\\spec\\layout\\demo\\aside-collapse.md"
   }
 };
+;
 
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+}();
 
-
-
-
-
-
-
-
-
-
+;

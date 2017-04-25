@@ -25,9 +25,10 @@ module.exports = {
   pick: {
    components(markdownData) {
       const filename = markdownData.meta.filename;
+
       if(!/^components/.test(filename))return;
       //if request.url not begin width components , we do not care about it!
-      if(/\/demos$/.test(path.dirname(filename)))return;
+      if(/\/demo$/.test(path.dirname(filename)))return;
       //We do not care about componets/demos markdown files
       return {
         meta: markdownData.meta,
@@ -49,8 +50,8 @@ module.exports = {
   plugins: [
     "./lib/plugins/dora-plugin-description",
   //To devide jsonml to content and description two part, the path relative to process.cwd!
-   // "./lib/plugins/dora-plugin-preview?lang=__react",
-   "./lib/plugins/dora-plugin-antd",
+   "./lib/plugins/dora-plugin-preview?lang=__react",
+   "./lib/plugins/dora-plugin-antd"
   ],
   routes: {
   	path:'/',

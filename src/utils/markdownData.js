@@ -257,7 +257,6 @@ exports.traverse = function traverse(filesTree, fn) {
       fn(value);
       return;
     }
-
     traverse(value, fn);
   });
 };
@@ -272,6 +271,7 @@ exports.traverse = function traverse(filesTree, fn) {
 exports.process = (filename, fileContent, plugins, isBuild/* 'undefined' | true */) => {
   const markdown = markTwain(fileContent);
   markdown.meta.filename = filename.split(path.sep).join("/");
+  //其中markdown就是我们通过mark-twain处理了markdown文件后的结果
   const parsedMarkdown = plugins.reduce(
     function(markdownData, plugin){
       return require(plugin[0])(markdownData, plugin[1], isBuild === true)

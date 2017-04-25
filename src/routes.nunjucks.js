@@ -34,6 +34,7 @@ function defaultCollect(nextProps, callback) {
  */
 module.exports = function getRoutes(data) {
   const plugins = data.plugins;
+  console.log("-----plugins---->",plugins);
   //All 'browser' module
   const converters = chain((plugin) => plugin.converters || [], plugins);
   //converters is for jsonml converter in `browser` mode

@@ -37,9 +37,9 @@ function parser(content) {
  */
 module.exports = function transformer(content, lang) {
   const fs = require('fs');
-  fs.writeFile('ast.js',content,()=>{
-    console.log('ended');
-  })
+  // fs.writeFile('ast.js',content,()=>{
+  //   console.log('ended');
+  // })
   let imports = [];
   const inputAst = parser(content);
   //we transform our input to AST

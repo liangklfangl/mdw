@@ -52,6 +52,7 @@ module.exports = (_, props) =>
        [node => JsonML.isElement(node) && isHeading(node), (node, index) => {
          const children = JsonML.getChildren(node);
          const sluggedId = generateSluggedId(children);
+         //生成ID
          return React.createElement(JsonML.getTagName(node), {
            key: index,
            id: sluggedId,
@@ -63,6 +64,7 @@ module.exports = (_, props) =>
          //childElement
        }],
        [node => JsonML.isElement(node) && JsonML.getTagName(node) === 'a' && !(
+        //如果是a标签，我们转化为link
         JsonML.getAttributes(node).class ||
           (JsonML.getAttributes(node).href &&
            JsonML.getAttributes(node).href.indexOf('http') === 0) ||

@@ -2,7 +2,8 @@ import path from "path";
 import resolvePlugin from "../utils/resolvePlugins";
 import  loaderUtils from "loader-utils";
 import getConfig from "../utils/getConfig";
-import processMardown from "../utils/processMd";
+const util = require('util');
+import processMardown from "../utils/markdownData";
 /**
  * [stringify markdown data]
  * @param  {[type]} node  [description]
@@ -67,9 +68,13 @@ module.exports = function(source) {
   //combine user defined and default config
   const resolvedNodePlugins = resolvePlugin(plugins,"node");
   //we get "node" module of plugins
+  // console.log('webpack真正加载md文件的时候plugins==========',util.inspect(resolvedNodePlugins,{showHidden:true,depth:1}));
   let parsedMarkdown = processMardown.process(filename,source,resolvedNodePlugins);
+   // console.log("处理后的parsedMarkdown为",parsedMarkdown);
+   //      console.log("---------------------------------------");
   //filename is absolute path of md file while source is content , resolvedNodePlugins is used to 
   //further process markdown content. Meta part of markdown data include filename . We now get 
   //mark-twain data. In detail http://www.jsonml.org/
+  // console.log('webpack真正加载md文件的时候==========',util.inspect(parsedMarkdown,{showHidden:true,depth:3}));
   return `module.exports = ${stringify(parsedMarkdown)}`;
 };

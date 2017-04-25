@@ -18,7 +18,7 @@ module.exports = (config) => {
     webpackConfig(webpackConfig) {
       webpackConfig.module.rules.forEach((rule) => {
         if (rule.test.toString() !== '/\\.md$/') return;
-        const babelIndex = (rule.loaders||[]).indexOf('babel');
+        const babelIndex = (rule.loaders||[]).indexOf('babel-loader');
         //In updateWebpackConfig, we use loaders array for markdown file
         const query = generateQuery(config);
         //We passed our query , lang=__react to jsonml-react-loader

@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 设计基础
-  en-US: Design Fundamental
+category: 设计基础
 order: 1
-title:
-  zh-CN: 排版
-  en-US: Typography
+title: 排版
 ---
 
 良好的排版规范能大大提升用户的视觉体验。

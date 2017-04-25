@@ -291,5 +291,7 @@ exports.process = (filename, fileContent, plugins, isBuild/* 'undefined' | true 
     //plugin[0] is plugin itselft while plugin[1] is query
     //[["lib/hello", "query0"], ["lib/hello", "query1"]]
   );
+     console.log("处理后的processMd为",parsedMarkdown);
+        console.log("---------------------------------------");
   return parsedMarkdown;
 };

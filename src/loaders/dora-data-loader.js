@@ -4,7 +4,7 @@ import loaderUtils from  'loader-utils';
 import getConfig from '../utils/getConfig';
 import markdownData from '../utils/markdownData';
 import resolvePlugins from '../utils/resolvePlugins';
-
+const util = require("util");
 module.exports = function bishengDataLoader(/* content */) {
   if (this.cacheable) {
     this.cacheable();
@@ -28,8 +28,10 @@ module.exports = function bishengDataLoader(/* content */) {
   const picked = {};
   if (config.pick) {
     const nodePlugins = resolvePlugins(config.plugins, 'node');
+    // console.log('markdown=====',util.inspect(markdown,{showHidden:true,depth:4}));
     //We get `node` mode
     markdownData.traverse(markdown, (filename) => {
+
     //We traverse our markdown tree object
      const fileContent = fs.readFileSync(path.join(process.cwd(), filename)).toString();
       //We get file content
@@ -50,6 +52,11 @@ module.exports = function bishengDataLoader(/* content */) {
       });
     });
   }
+// fs.writeFile('./function.js',`[\n${pluginsString}\n]` , (err) => {
+//   if (err) throw err;
+//   console.log('写plugin函数成功');
+// });
+  // console.log('picked=====',util.inspect(picked,{showHidden:true,depth:4}));
   //markdown is tree object
   //plugins is all `browser` plugins string, it is an array joined width ","
   //picked is picked object as above
@@ -61,3 +68,21 @@ module.exports = function bishengDataLoader(/* content */) {
     `\n};`;
     return result;
 };
+// module.exports = {
+//   markdown: {
+//   'components': {
+//     'alert': {
+//       'demo': {
+//         'banner': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/banner.md'),
+//         'basic': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/basic.md'),
+//         'closable': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/closable.md'),
+//         'close-text': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/close-text.md'),
+//         'description': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/description.md'),
+//         'icon': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/icon.md'),
+//         'style': require('C:/Users/Administrator/Desktop/mdw/components/alert/demo/style.md'),
+//       },
+//       'index': require('C:/Users/Administrator/Desktop/mdw/components/alert/index.md'),
+//     },
+//   }
+//  }
+// }
