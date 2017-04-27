@@ -3,18 +3,28 @@ const path = require('path');
 const JsonML = require('jsonml.js/lib/utils');
 const Prism = require('node-prismjs');
 const nunjucks = require('nunjucks');
+const util = require("util");
 nunjucks.configure({ autoescape: false });
-
 const babel = require('babel-core');
 const babelrc = {
   presets: ['es2015', 'react'].map(m =>
      require.resolve(`babel-preset-${m}`)
-  ),
+  ), 
+  plugins: [
+    require.resolve('babel-plugin-transform-runtime'),
+    // require.resolve("babel-plugin-add-module-exports"),
+    // 因为我们是在一个markdown文件中写的，所以不需要这个插件
+     [ require.resolve('babel-plugin-import'), {
+      libraryName: 'antd',
+      style: 'css'
+    }]
+    ]
 };
 //babelrc file
 const tmpl = fs.readFileSync(path.join(__dirname, 'template.html')).toString();
 const utils = require('./utils');
 
+//是style标签的内容
 function isStyleTag(node) {
   return node && JsonML.getTagName(node) === 'style';
 }
@@ -90,9 +100,7 @@ function getSourceCodeObject(contentChildren, codeIndex) {
 }
 
 /**
- * [getStyleNode we care about style tag or pre with css attribute]
- * @param  {[type]} contentChildren [description]
- * @return {[type]}                 [description]
+ * 返回style标签或者<pre language="css">两种Node，但是只是返回第一个
  */
 function getStyleNode(contentChildren) {
   return contentChildren.filter(node =>
@@ -103,9 +111,12 @@ function getStyleNode(contentChildren) {
 
 /**
  * [description]
- * @param  {[type]}  markdownData [Preprocessed jsonml of previous plugin]
- * @param  {Boolean} isBuild      [description]
- * @return {[type]}               [description]
+ *这里的markdownData指的是前一个plugin处理后得到的jsonml。这里是真实的markdown文件内容，而不是markdown
+ *文件树
+ *  const markdownData = markTwain(fileContent);
+ * 如路径为./components/button/demo/basic.md，这是一个独立的markdown文件，通过第一个loader会转化为文件树，即
+ * basic:require("components/button/demo/basic.md"),而真实加载markdown文件时候会封装到这里所谓的markdownData对象上
+ * 所以此处的markdownData值得就是如basic对象,button-group,disabled内容
  */
 module.exports = (markdownData, isBuild) => {
   const meta = markdownData.meta;
@@ -116,15 +127,15 @@ module.exports = (markdownData, isBuild) => {
   }
   // Update content of demo.
   const contentChildren = JsonML.getChildren(markdownData.content);
-  //We get content part , meta part eliminated
+  //我们得到Demo页面的content部分
   const chineseIntroStart = getChineseIntroStart(contentChildren);
-  //We invoke findIndex to get index of h2 tag with label of 'zh-CN'
+  //得到中文部分
   const englishIntroStart = getEnglishIntroStart(contentChildren);
-  //We invoke findIndex to get index of h2 tag with label of 'en-US'
+  //得到英文部分
   const codeIndex = getCodeIndex(contentChildren);
   //找到第一个pre标签，同时该标签的为jsx属性
   const introEnd = codeIndex === -1 ? contentChildren.length : codeIndex;
-  //in Demo page, we will devide content into two parts, zh-CN and en-US. Get end of introduction
+  //我们包含英文和中文两部分content
   if (chineseIntroStart > -1 ) {
     markdownData.content = {
       'zh-CN': contentChildren.slice(chineseIntroStart + 1, englishIntroStart),
@@ -134,16 +145,22 @@ module.exports = (markdownData, isBuild) => {
     markdownData.content = contentChildren.slice(0, introEnd);
   }
   const sourceCodeObject = getSourceCodeObject(contentChildren, codeIndex);
-  //we get content of code tag
+  //如果codeIndex，也就是含有属性为jsx的pre标签存在，那么我们此时就是ES6代码
+  //否则就是TypeScript代码
   if (sourceCodeObject.isES6) {
-    //if we are in jsx syntax
     markdownData.highlightedCode = contentChildren[codeIndex].slice(0, 2);
-    //codeIndex is pre tag with jsx attribute, so here we will get pre attribute and code tag
+    //得到pre标签以及pre标签含有的属性，其属性包含了jsx语言以及通过prism高亮显示后的结果
     markdownData.preview = utils.getPreview(sourceCodeObject.code);
-    //change lib components reference to components folder
+    //这里添加了 'pre', { lang: '__react' }从而可以让dora-plugin-preview来处理~~~
   }
-  // Add style node to markdown data.
+  //如路径为components/button/demo/basic.md，这是一个独立的markdown文件，通过第一个loader会转化为文件树，即
+  //basic:require("components/button/demo/basic.md"),所以这里的markdownData对象就是指的是我们的basic对象
   const styleNode = getStyleNode(contentChildren);
+  //得到两种节点：第一种是<pre language="css">，第二种是<style>标签。
+  //(1)其中<style>标签的内容是对liveDemo进行样式调整的，会构建style标签插入到DOM中~~~~~~
+  //(2)我们的<pre language="css">会直接显示在代码展示区块，http://1x.ant.design/components/card/
+  //总之：如果第一个是<style>那么只获取到<style>中的css样式返回，并用于调节demo样式(https://raw.githubusercontent.com/ant-design/ant-design/master/components/button/demo/button-group.md)
+  //否则如果第一个不是<style>，那么style中包含了<pre language="css">和<style>标签的内容，两者共同调节demo样式~~~
   if (isStyleTag(styleNode)) {
     markdownData.style = JsonML.getChildren(styleNode)[0];
   } else if (styleNode) {
@@ -151,18 +168,24 @@ module.exports = (markdownData, isBuild) => {
     markdownData.style = getCode(styleNode) + (styleTag ? JsonML.getChildren(styleTag)[0] : '');
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
   }
- //markdownData.style and  markdownData.highlightedStyle are injected
   if (meta.iframe) {
+    // console.log("---------->",util.inspect(getCode(markdownData.preview),{showHidden:true,depth:3}));
+  //如果指定了是iframe，那么我们将我们的这个html模版进行渲染，替换掉变量后
+  //然后放在输出文件夹下~~
+  //Demo页面:https://ant.design/components/breadcrumb-cn/
     const html = nunjucks.renderString(tmpl, {
-      id: meta.id,//meta.filename.replace(/\.md$/, '').replace(/\//g, '-');
-      style: markdownData.style,//css content
+      id: meta.id,
+      //meta.filename.replace(/\.md$/, '').replace(/\//g, '-');
+      style: markdownData.style,
+      //markdownData.style保存的内容与demo页面第一个是<style>还是<pre languate="css">有关~~
       script: babel.transform(getCode(markdownData.preview), babelrc).code,
-      //transform our jsonml to code
+      //对我们的<pre langage="jsx">的标签进行编译，编译成为ES5的代码
     });
     const fileName = `demo-${Math.random()}.html`;
-    fs.writeFile(path.join(process.cwd(), '_site', fileName), html);
+    //生成一个iframe页面
+    fs.writeFile(path.join(process.cwd(), 'site', fileName), html);
+    //将iframe的内容写到输出目录下，同时将src方法markdownData对象上~~
     markdownData.src = path.join('/', fileName);
-    //src
   }
   return markdownData;
 };
