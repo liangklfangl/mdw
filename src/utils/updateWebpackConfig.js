@@ -4,6 +4,7 @@ const loaders = path.join(process.cwd(),"./lib/loaders");
 import getConfig from "./getConfig";
 import resolvePlugins from "./resolvePlugins";
 import webpack from "webpack";
+const util = require('util');
 /**
  * [exports Function for update webpack configuration, our configFile must provide an entry]
  * @param  {[type]}  webpackConfig [Default webpack config getting by wcf tool]
@@ -45,7 +46,8 @@ const pluginsConfig = resolvePlugins(config.plugins, 'config');
  //Fourthly: Setting entry part of webpack config file
 const entryPath = path.join(path.join(__dirname,".."), '..', 'tmp', 'entry.' + config.entryName + '.js');
 //entryName is also setted in our mdw config file
-  if (finalUpdatedWebpackConfig.entry[config.entryName]) {
+// console.log("finalUpdatedWebpackConfig---->",util.inspect(finalUpdatedWebpackConfig,{showHidden:true,depth:3}));
+if (finalUpdatedWebpackConfig.entry[config.entryName]) {
     throw new Error('Should not set `webpackConfig.entry.' + config.entryName + '`!');
   }
   finalUpdatedWebpackConfig.entry[config.entryName] = entryPath;

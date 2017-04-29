@@ -1,11 +1,42 @@
 import React from "react";
-export default class Content extends React.Component{
- constructor(props){
- 	super(props);
+import MainContent from "./MainContent.jsx";
+//通过Template.collect方法,因为这个组件会牵涉到页面的内容，所以我们要获取到demo部分
+export function collect(nextProps,callback){ 
+const pathname = nextProps.location.pathname;
+//因为我们的markdown文件后面都有语言后缀
+//得到URL的pathname部分
+const pageDataPath = pathname.split('/').filter((elem) =>{
+	return !!elem
+});
+// console.log('collect中pageDataPath:',pageDataPath);
+//得到获取到pageData的路径，然后获取到数据
+let pageData = nextProps.pageData;
+//获取到pageData
+if(!pageData){
+	pageData = nextProps.utils.get(nextProps.data,pageDataPath);
+}
+// console.log('collect中的pageData',pageData);
+//根据URL得到当前页面对应的pageData
+if(!pageData){
+	callback(404,nextProps);
+	return;
+}
+// console.log('collect中的nextProps.data',nextProps.data);
+//如果根据URL还没有得到数据，那么直接返回
+const demos = nextProps.utils.get(nextProps.data,[...pageDataPath,"demo"]);
+// console.log('collect中的demos',demos);
+//(1)只有Components文件夹下才会有demos属性,所以当你访问"components/alert/"的时候
+//此时获取到的demo就是存在的
+
+callback(null,{
+	...nextProps,
+	pageData,
+	demos
  }
- render(){
- 	return (
-          <div>content page</div>
- 		)
- }
-} 
+);
+  //必须调用才会真实实例化组件
+}
+//通过Template.default方法导入
+export default (props)=>{
+  return <MainContent {...props} />
+}

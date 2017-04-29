@@ -2,7 +2,6 @@ const path = require('path');
 const contentTmpl = './template/content/index.jsx';
 const layoutTemp = './template/Layout/index.jsx';
 const homeTmpl = './template/home/index.jsx';
-
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
   return (markdownData) => {
@@ -25,7 +24,6 @@ module.exports = {
   pick: {
    components(markdownData) {
       const filename = markdownData.meta.filename;
-
       if(!/^components/.test(filename))return;
       //if request.url not begin width components , we do not care about it!
       if(/\/demo$/.test(path.dirname(filename)))return;
@@ -74,16 +72,25 @@ module.exports = {
        path: 'docs/react/:children',
        component: contentTmpl,
       },
-      //If we click 'component' panel, we will initialize contentTmpl
+       {
+       path: 'docs/spec/:children',
+       component: contentTmpl,
+      },
+       {
+       path: 'docs/resource/:children',
+       component: contentTmpl,
+      },
+      {
+       path: 'docs/pattern/:children',
+       component: contentTmpl,
+      },
         {
         path: 'components/:children/',
         component: contentTmpl,
       }
-      //If you click 'component' panel, content part of layoutTemp will be replaced by contentTmpl!
-      //this time collect function will be revoked and left part and right part of content will be recalculated
-      //while header and footer part stand still
+      //此时只有path最后含有"/"才会实例化这个组件，比如"components/alert/"
+      //而"components/alert"不会实例化
     ]
-    //path relative to cwd/theme/template
-    //Every component instantiated will receive a util object to translate jsonml to react Component
+   
   }
 };

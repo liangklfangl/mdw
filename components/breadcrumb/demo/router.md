@@ -65,10 +65,45 @@ ReactDOM.render(
   background: #f8f8f8;
 }
 .demo-nav a {
-  line-height: 30px;
-  padding: 0 10px;
+    line-height: 30px;
+    padding: 0 8px;
 }
-.app-list {
-  margin-top: 15px;
+a {
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+}
+a {
+    color: #108ee9;
+    background: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+}
+.ant-alert.ant-alert-no-icon {
+    padding: 8px 48px 8px 16px;
+}
+.ant-alert-info {
+    border: 1px solid #d2eafb;
+    background-color: #ecf6fd;
+}
+.ant-alert {
+    position: relative;
+    padding: 8px 48px 8px 38px;
+    border-radius: 4px;
+    color: rgba(0,0,0,.65);
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+.ant-alert-description {
+    font-size: 12px;
+    line-height: 21px;
+    display: none;
+}
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
 }
 ````

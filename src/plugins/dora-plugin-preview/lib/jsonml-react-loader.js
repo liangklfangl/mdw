@@ -11,7 +11,6 @@ module.exports = function jsonmlReactLoader(content) {
   if (this.cacheable) {
     this.cacheable();
   }
-
   const query = loaderUtils.getOptions(this);
   const lang = query.lang || 'react-example';
   //we get configured language in dora-plugin-preview

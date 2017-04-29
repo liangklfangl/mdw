@@ -54,4 +54,4 @@ module.exports = function() {
 
 ```
 
-
+#### preview时候的一开始是字符串，后面是如何转化为函数的~~

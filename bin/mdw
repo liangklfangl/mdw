@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const program = require('commander');
 program.cwd=process.cwd();
-
+process.env.NODE_ENV = 'development';
+console.log(process.env.NODE_ENV);
 program
   .version(require('../package.json').version, '-v, --version')
   .option('-s, --start', 'start building markdown files to websites!')
@@ -9,6 +10,7 @@ program
   //This file is for mdw config update
   .option('-w, --webpackFile <webpackFile>', 'custom webpack config file!')
   //This file is to update webpack default configuration
+  // .option('-t, --htmlTemplate <htmlTemplate>', 'custom webpack config file!')
   .parse(process.argv);
 
 if(program.start){

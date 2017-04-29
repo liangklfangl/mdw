@@ -51,10 +51,11 @@ module.exports = {
        component: contentTmpl,
       },
       //If we click 'component' panel, we will initialize contentTmpl
-       {
-        path: 'components/:children/',
-        component: contentTmpl,
-      }
+      //  {
+      //   path: 'components/:children/',
+      //   component: contentTmpl,
+      // }
+      //这里只是用于替换this.props.children而已，其中父组件中Header,Footer正常实例化
       //If you click 'component' panel, content part of layoutTemp will be replaced by contentTmpl!
       //this time collect function will be revoked and left part and right part of content will be recalculated
       //while header and footer part stand still

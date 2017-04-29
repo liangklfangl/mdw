@@ -22,7 +22,7 @@ import { Button, Radio, Icon } from 'antd';
 
 class ButtonSize extends React.Component {
   state = {
-    size: 'default',
+    size: 'default'
   };
 
   handleSizeChange = (e) => {

@@ -55,6 +55,9 @@ export default function build(program){
    * (2)if you want to define a user config, this config file must export an function because 
    *    dora-plugin-webpack will use it!
  */
+ const webpackFile = program.webpackFile;
+ const htmlTemplate = program.htmlTemplate;
+ //得到自己的webpack配置文件内容
  const doraConfig = Object.assign({}, {
     cwd: path.join(process.cwd(), combinedMdwConfig.output),
     //dora server's cwd is from output folder
@@ -80,6 +83,8 @@ export default function build(program){
        */
      [require.resolve('./plugins/dora-plugin-webpack'), {
       disableNpmInstall: true,
+      config : webpackFile,
+      htmlTemplate :htmlTemplate,
       cwd : cwd //must be correctly set
       //config:configFile, using this config to update default webpack config!
       // which can either export a function or object

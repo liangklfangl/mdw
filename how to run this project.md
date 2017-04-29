@@ -1,6 +1,6 @@
 ### 1.run
 ```js
- node ./bin/mdw --start --configFile ./theme/index.js
+node ./bin/mdw --start --configFile ./theme/index.js --webpackFile ./webpack.config.js 
  //不要添加dev
 ```
 ### 2.注意

@@ -27,3 +27,5 @@ new webpack.DefinePlugin({
 解决方案：在参数为true的情况下添加html-webpack-plugin就可以了，用户自己指定htmlTemplate参数
 
 #### 8.学习我们的dora-plugin-webpack，如果用户指定的文件导出了一个对象那么直接忽略我们默认的webpack配置也就是调用getCommonConfig方法得到的结果
+
+#### 9.下面的代码都要以userdefinedHtml为主
