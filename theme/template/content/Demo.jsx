@@ -7,28 +7,22 @@ import classNames from 'classnames';
 import {Icon} from "antd";
 import { is } from 'immutable';
 import EditButton from "./EditButton";
-import {Select} from "../../../components/index.js";
+// import {Select} from "../../../components/index.js";
 // function jsonmlReactLoader() {
-    const props = {
-        url: "http://mytv-test.alibaba.net/common/jsonp/getYoukuPerson.htm",
-         style: {
-          width: "200px"
-        },
-         method: 'post',
-        query: {
-        fetchKey: "keyword"
-        },
-         data: ["data", 'users'], //对象路由
-      updater: function (item) {
-        return item.personname;
-      }, //该函数表示选中一行的时候应该选中哪一个字段在文本框中显示
-      showHtml: function (rowData) {
-        const thumburl = rowData.thumburl;
-        const personname = rowData.personname;
-        const personid = rowData.personid;
-        return "<img style='vertical-align:middle' src=" + thumburl + "></img>" + "<span>" + personid + "</span>" + "<span style='width:80px;'>" + personname + "</span>";
-      }
-    };
+//     var props = { url: "http://mytv-test.alibaba.net/common/jsonp/getYoukuPerson.htm", style: { width: "200px" }, method: 'post',
+//       query: { fetchKey: "keyword" }, data: ["data", 'users'], //对象路由
+//       updater: function updater(item) {
+//         return item.personname;
+//       }, //该函数表示选中一行的时候应该选中哪一个字段在文本框中显示
+//       showHtml: function showHtml(rowData) {
+//         var thumburl = rowData.thumburl;
+//         var personname = rowData.personname;
+//         var personid = rowData.personid;
+//         return "<img style='vertical-align:middle' src=" + thumburl + "></img>" + "<span>" + personid + "</span>" + "<span style='width:80px;'>" + personname + "</span>";
+//       } };
+//       return React.createElement(_index.Select, props);
+//   }
+    //(5)直接这么写就可以了 <Select {...props}/>
     //(4)无法选择是antd的版本不对
     //(3) 打包好组件，然后放在我们的components.js中，此时class被编译为函数，那么我们直接export的就是函数
     //    可以把components/index.js单独作为一个文件打包，即作为webpack的入口文件
@@ -39,6 +33,7 @@ import {Select} from "../../../components/index.js";
   // }
 // const highlightStyleMock = require("../../../mock/highlightStyle");
 const R = require("ramda");
+
 export default class Demo extends React.Component {
    constructor(props){
      super(props);
@@ -73,9 +68,9 @@ export default class Demo extends React.Component {
   render(){
     // console.log('jsonmlReactLoader调用返回的对象',jsonmlReactLoader());
 
-  console.log("demo组件接收到的数据this.props",this.props.preview);
+  console.log("demo组件接收到的数据this.props",this.props);
     //我们手动添加highlightStyle
-  const {content,highlightedCode,meta,preview,src} = this.props;
+  const {content,highlightedCode,meta,preview,src,demoCodeForBack} = this.props;
 	 //详见dora-plugin-antd，content是一个对象有{zh-CN:{},en-US:{}}属性(Demo页面含有中文和英文两部分)
 	 //highlightedCode是demo页面中的"pre标签"与pre标签含有的jsx语言和hightlighted属性(通过prisme高亮显示)
    const {highlightedStyle, style} = this.props;
@@ -95,6 +90,8 @@ export default class Demo extends React.Component {
          'code-box': true,
           expand: this.state.codeExpand || codeExpand,
 	 });
+   const liveCode = demoCodeForBack || highlightedCode || "";
+   //如果有demoCodeForBack表示是兼容后台的页面，否则就是正常页面
    const highlightedWrapperClss = classNames({
       'highlight-wrapper': true,
       'highlight-wrapper-expand': this.state.codeExpand || codeExpand,
@@ -103,7 +100,7 @@ export default class Demo extends React.Component {
      return (
       <div className={classHighlightCode}>
          <div  className="code-box-demo" id="code-box-demo">
-           <Select {...props}/>
+          {this.props.preview(React, ReactDOM)}
            <If condition={style}>
              {
                <style dangerouslySetInnerHTML={{ __html: style }}/>
@@ -117,7 +114,7 @@ export default class Demo extends React.Component {
           <div className="code-content-description">{localContent}</div>
            <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExpand} />
           <div className={highlightedWrapperClss}>
-               {utils.toReactComponent(highlightedCode)}
+               {utils.toReactComponent(liveCode)}
               <If condition={highlightedStyle}>
                <div key="style" className="highlight">
                   {/*toReactComponent只有显示属性中hightlight属性的功能，见dora-plugin-highlight*/}

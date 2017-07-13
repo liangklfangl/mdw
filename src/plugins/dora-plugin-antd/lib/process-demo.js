@@ -76,6 +76,18 @@ function getStyleNode(contentChildren) {
   )[0];
 }
 
+/**
+ * 得到需要展示给后端同学查看的代码
+ * @param  {[type]} contentChildren [description]
+ * @return {[type]}                 [description]
+ */
+function getDemoCodeForBack(contentChildren){
+  return contentChildren.filter(node =>
+      (JsonML.getTagName(node) === 'pre' && JsonML.getAttributes(node).lang === '__back')
+  )[0];
+}
+
+
 module.exports = (markdownData, isBuild ) => {
   const meta = markdownData.meta;
   meta.id = meta.filename.replace(/\.md$/, '').replace(/\//g, '-');
@@ -99,9 +111,14 @@ module.exports = (markdownData, isBuild ) => {
   } else {
     markdownData.content = contentChildren.slice(0, introEnd);
   }
+
+
   const sourceCodeObject = getSourceCodeObject(contentChildren, codeIndex);
   //得到源代码
   if (sourceCodeObject.isES6) {
+    markdownData.demoCodeForBack = getDemoCodeForBack(contentChildren);
+      // console.log(" markdownData.demoCodeForBack++++++++", util.inspect(markdownData.demoCodeForBack,{showHidden:true,depth:5}));
+    //后端显示的代码
     markdownData.highlightedCode = contentChildren[codeIndex].slice(0, 2);
     //获取高亮的代码~~因为代码是<pre language="jsx">
      markdownData.preview = utils.getPreview(sourceCodeObject.code);
@@ -118,6 +135,8 @@ module.exports = (markdownData, isBuild ) => {
     markdownData.style = getCode(styleNode) + (styleTag ? JsonML.getChildren(styleTag)[0] : '');
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
   }
+
+
     // console.log("内联进去的js代码:",util.inspect(transformer(sourceCodeObject.code, babelrc),{showHidden:true,depth:4}));
   if (meta.iframe) {
     meta.reactRouter ="react-router";

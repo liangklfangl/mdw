@@ -1,7 +1,9 @@
 import React from "react";
 import MainContent from "./MainContent.jsx";
 //通过Template.collect方法,因为这个组件会牵涉到页面的内容，所以我们要获取到demo部分
-export function collect(nextProps,callback){ 
+export function collect(nextProps,callback){
+
+
 const pathname = nextProps.location.pathname;
 //因为我们的markdown文件后面都有语言后缀
 //得到URL的pathname部分

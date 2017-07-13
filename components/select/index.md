@@ -1,6 +1,6 @@
 ---
 category: Components
-type: General
+type: Compatiable
 title: Select
 subtitle: 搜索框
 ---
@@ -10,6 +10,25 @@ subtitle: 搜索框
 ## 何时使用
 
 用于显示动态的搜索结果。
+
+## 前提条件
+第一步：引入我们的js/css文件
+
+```html
+<link rel="stylesheet" type="text/css" href="http://g-assets.daily.taobao.net/tvadmin/uniform-ui/1.0.2/Select/index.css"/>
+ <script type="text/javascript" src="http://g-assets.daily.taobao.net/tvadmin/uniform-ui/1.0.2/vendor.js"></script>
+ <script type="text/javascript" src="http://g-assets.daily.taobao.net/tvadmin/uniform-ui/1.0.2/Select/index.js"></script>
+```
+
+线上地址为:
+
+```html
+<link rel="stylesheet" type="text/css" href="http://g.alicdn.com/tvadmin/uniform-ui/1.0.2/Select/index.css"/>
+ <script type="text/javascript" src="http://g.alicdn.com/tvadmin/uniform-ui/1.0.2/vendor.js"></script>
+<script type="text/javascript" src="http://g.alicdn.com/tvadmin/uniform-ui/1.0.2/Select/index.js"></script>
+```
+
+第二步:我们的Select已经被挂载到window对象上，可以直接使用，请参加下面的例子。
 
 ## API
 
@@ -22,4 +41,24 @@ subtitle: 搜索框
 | data      | 通过该数组获取服务端返回值中我们需要处理的数据,如["data",'users']将会获取服务端res.data.users中数据                                                         | array    | 无                     |
 | updater   | 接受一个参数表示搜索框要显示的每一行的数据对象，你返回这个对象的一个属性。那么当你选中一个结果的时候文本框中就会显示对象的该属性值                          | function | 无                     |
 | invokeAdd | 静态方法，通过Select.invokeAdd调用。当你需要动态创建DOM元素并需要该DOM有Select的功能时调用。该方法必须在操作DOM之前调用才有效                               | function | 无                     |
+
+
+### 遇到的问题
+
+(1)传入的mountNode节点不能是空标签
+
+```html
+<div/>
+<!-- 替换为如下内容 -->
+<div></div>
+```
+
+(2)Select.invokeAdd在操作DOM之前调用
+
+```js
+ Select.invokeAdd([".person_tips",".role_tips",".company_tips"]);
+ //下面开始操作DOM
+ $('#container').append('<div class="person_tips" data-name="name1" placeholder="value1"></div><div class="role_tips" data-name="name2" data-value="add1"></div><div class="company_tips" data-name="name3" placeholder="value3" data-value="add2"></div>');
+```
+
 

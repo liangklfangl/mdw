@@ -12,7 +12,7 @@
     "index": "./theme/template/Layout/index.jsx"
   },
   "dependencies": {
-    "antd": "^2.8.1",
+    "antd": "^2.11.2",
     "babel-loader": "^6.4.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react": "^6.23.0",

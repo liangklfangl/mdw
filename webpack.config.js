@@ -58,7 +58,8 @@ module.exports = {
    //此时我们通过require("antd");就会将antd的所有的组件都暴露到window对象上
    resolve: {
       alias: {
-        "antd" :"antd"
+        "antd" :"antd",
+         "cms": path.join(__dirname,"./components/index.js")
       },
     },
 	 devServer:{

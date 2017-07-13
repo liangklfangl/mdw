@@ -4,7 +4,6 @@ const ReactRouter = require('react-router') ;
 const history = require('history');
 let data  = require('../lib/utils/data.js');
 console.log('所有markdown树和内容都解析后:',data);
-
 import createElement from "../lib/utils/createElement";
 import Router from "react-router";
 /*

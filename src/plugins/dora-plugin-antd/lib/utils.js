@@ -15,6 +15,7 @@ exports.getPreview = function getPreview(sourceCode) {
     'code',
     sourceCode.replace(`${pkgName}/lib`, componentsPath),
   ]);
+
   // console.log(util.inspect(preview,{showHidden:true,depth:4}));
   return preview;
 };
