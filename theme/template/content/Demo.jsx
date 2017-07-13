@@ -7,6 +7,36 @@ import classNames from 'classnames';
 import {Icon} from "antd";
 import { is } from 'immutable';
 import EditButton from "./EditButton";
+import {Select} from "../../../components/index.js";
+// function jsonmlReactLoader() {
+    const props = {
+        url: "http://mytv-test.alibaba.net/common/jsonp/getYoukuPerson.htm",
+         style: {
+          width: "200px"
+        },
+         method: 'post',
+        query: {
+        fetchKey: "keyword"
+        },
+         data: ["data", 'users'], //对象路由
+      updater: function (item) {
+        return item.personname;
+      }, //该函数表示选中一行的时候应该选中哪一个字段在文本框中显示
+      showHtml: function (rowData) {
+        const thumburl = rowData.thumburl;
+        const personname = rowData.personname;
+        const personid = rowData.personid;
+        return "<img style='vertical-align:middle' src=" + thumburl + "></img>" + "<span>" + personid + "</span>" + "<span style='width:80px;'>" + personname + "</span>";
+      }
+    };
+    //(4)无法选择是antd的版本不对
+    //(3) 打包好组件，然后放在我们的components.js中，此时class被编译为函数，那么我们直接export的就是函数
+    //    可以把components/index.js单独作为一个文件打包，即作为webpack的入口文件
+    //(2)  {<Select {...props}/>}这种方式相当于cannot call a class as function
+    //(1)document.getElementById("code-box-demo")的元素根本不存在，无法通过这种方式插入，因为他是react节点
+    // return ReactDOM.render(<Select {...props}/>,document.getElementById("code-box-demo"));
+  //    return new Select(props);
+  // }
 // const highlightStyleMock = require("../../../mock/highlightStyle");
 const R = require("ramda");
 export default class Demo extends React.Component {
@@ -41,7 +71,9 @@ export default class Demo extends React.Component {
    return false;
  }
   render(){
-  console.log("demo组件接收到的数据this.props",this.props);
+    // console.log('jsonmlReactLoader调用返回的对象',jsonmlReactLoader());
+
+  console.log("demo组件接收到的数据this.props",this.props.preview);
     //我们手动添加highlightStyle
   const {content,highlightedCode,meta,preview,src} = this.props;
 	 //详见dora-plugin-antd，content是一个对象有{zh-CN:{},en-US:{}}属性(Demo页面含有中文和英文两部分)
@@ -53,9 +85,10 @@ export default class Demo extends React.Component {
 	 //获取title
 	 const localContent = content["zh-CN"];
 	 //直接调用我们的元素的toReactComponent就可以了，其中处理的逻辑通过dora-plugin-highlighted来完成
-  const liveDemo = meta.iframe ? <iframe src={src}/> :this.props.preview(React, ReactDOM);
+  // const liveDemo = meta.iframe ? <iframe src={src}/> :this.props.preview(React, ReactDOM);
+    // const liveDemo = meta.iframe ? <iframe src={src}/> :jsonmlReactLoader()
    //表示用户希望是采用iframe形式来展示页面
-     
+   // console.log('liveDemo=====>',liveDemo);
 	 const { codeExpand } = this.props;
    //父组件传递过来codeExpand
    const classHighlightCode = classNames({
@@ -69,8 +102,8 @@ export default class Demo extends React.Component {
    //高亮显示的代码部分
      return (
       <div className={classHighlightCode}>
-         <div  className="code-box-demo">
-           {liveDemo}
+         <div  className="code-box-demo" id="code-box-demo">
+           <Select {...props}/>
            <If condition={style}>
              {
                <style dangerouslySetInnerHTML={{ __html: style }}/>

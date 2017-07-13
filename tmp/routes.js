@@ -14,7 +14,7 @@ var chain = require('ramda/src/chain');
 var _toReactComponent = require('jsonml-to-react-component');
 //jsonml-to-react-component
 var exist = require('exist.js');
-var NotFound = require('C:/Users/Administrator/Desktop/mdw/theme/template/NotFound.jsx');
+var NotFound = require('/Users/qinliang.ql/Desktop/mdw/theme/template/NotFound.jsx');
 //replace dynamic param with truely passed param value
 function calcPropsPath(dataPath, params) {
   return (0, _keys2.default)(params).reduce(function (path, param) {
@@ -70,7 +70,7 @@ module.exports = function getRoutes(data) {
     var dataPath = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
     //template is ususally ./template/NotFound
-    var Template = require('C:/Users/Administrator/Desktop/mdw/theme/template' + template.replace(/^\.\/template/, ''));
+    var Template = require('/Users/qinliang.ql/Desktop/mdw/theme/template' + template.replace(/^\.\/template/, ''));
     //We get final path of component
     return function (nextState, callback) {
       var propsPath = calcPropsPath(dataPath, nextState.params);
@@ -113,7 +113,7 @@ module.exports = function getRoutes(data) {
       });
     };
   }
-  var theme = require('C:/Users/Administrator/Desktop/mdw/theme');
+  var theme = require('/Users/qinliang.ql/Desktop/mdw/theme');
   // We get index file from themePath which is configured as core part of react-router
   var routes = Array.isArray(theme.routes) ? theme.routes : [theme.routes];
   //Get router part of react-router, routes part ususally configured as follows:

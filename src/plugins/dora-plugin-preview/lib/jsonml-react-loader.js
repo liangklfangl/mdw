@@ -8,6 +8,8 @@ const transformer = require('./transformer');
  * @return {[type]}         []
  */
 module.exports = function jsonmlReactLoader(content) {
+// console.log('传入的content===========>',content);
+
   if (this.cacheable) {
     this.cacheable();
   }
@@ -30,7 +32,9 @@ module.exports = function jsonmlReactLoader(content) {
     return code;
   }
 
- return 'const React =  require(\'react\');\n' +
+ const returnCode = 'const React =  require(\'react\');\n' +
         'const ReactDOM = require(\'react-dom\');\n'+
         code;
+  // console.log('jsonml-react-loader处理后的结果:',returnCode);
+        return code;
 };

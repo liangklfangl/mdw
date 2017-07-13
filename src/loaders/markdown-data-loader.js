@@ -9,9 +9,9 @@ import processMardown from "../utils/markdownData";
  * @param  {[type]} node  [description]
  * @param  {Number} depth [description]
  * @return {[type]}       [description]
- * Sometimes , input as: 
+ * Sometimes , input as:
  * { content: [ 'article', [ 'h3', '1.md' ] ],
-     meta: { filename: 'md\\index.md' } 
+     meta: { filename: 'md\\index.md' }
    }
    Then we get follows:
   {
@@ -72,8 +72,8 @@ module.exports = function(source) {
   let parsedMarkdown = processMardown.process(filename,source,resolvedNodePlugins);
    // console.log("处理后的parsedMarkdown为",parsedMarkdown);
    //      console.log("---------------------------------------");
-  //filename is absolute path of md file while source is content , resolvedNodePlugins is used to 
-  //further process markdown content. Meta part of markdown data include filename . We now get 
+  //filename is absolute path of md file while source is content , resolvedNodePlugins is used to
+  //further process markdown content. Meta part of markdown data include filename . We now get
   //mark-twain data. In detail http://www.jsonml.org/
   // console.log('webpack真正加载md文件的时候==========',util.inspect(parsedMarkdown,{showHidden:true,depth:3}));
   return `module.exports = ${stringify(parsedMarkdown)}`;

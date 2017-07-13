@@ -84,7 +84,7 @@ module.exports = function transformer(content, lang) {
             }
           },
         });
-        //End of traverse of codeAst, `import` and `ReactDOM.render` are all removed, only 
+        //End of traverse of codeAst, `import` and `ReactDOM.render` are all removed, only
         //a part of demo code remained!
         const astProgramBody = codeAst.program.body;
         //program.body are updated through previous manipulation
@@ -116,3 +116,4 @@ module.exports = function transformer(content, lang) {
     //inputAst is proccessed ast of pre tag
   };
 };
+

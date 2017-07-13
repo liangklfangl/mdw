@@ -36,7 +36,7 @@ console.log('所有markdown树和内容都解析后:', data);
   };
  */
 //As entry file, we have to know routes meaning which component to instantiate(ReactRouter)!
-var routes = require('C:/Users/Administrator/Desktop/mdw/tmp/routes.js')(data);
+var routes = require('/Users/qinliang.ql/Desktop/mdw/tmp/routes.js')(data);
 //Purpose 1: We pass our markdown object to react-router to figure out which component to instantiate!
 //Purpose 2: In this module, we get all plugins`s converter array combined to translate jsonml to react component
 //Purpose 3: Every Component , child component included, has it`s own util and also support code splitting

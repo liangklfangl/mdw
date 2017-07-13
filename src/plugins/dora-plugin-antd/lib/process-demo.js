@@ -104,8 +104,10 @@ module.exports = (markdownData, isBuild ) => {
   if (sourceCodeObject.isES6) {
     markdownData.highlightedCode = contentChildren[codeIndex].slice(0, 2);
     //获取高亮的代码~~因为代码是<pre language="jsx">
-     // markdownData.preview = utils.getPreview(sourceCodeObject.code);
-    markdownData.preview = utils.getPreview(transformer(sourceCodeObject.code, babelrc));
+     markdownData.preview = utils.getPreview(sourceCodeObject.code);
+    // console.log('ES6哪儿的代码===>',transformer(sourceCodeObject.code, babelrc));
+    //这里采用了一种最新的技术来完成的
+    // markdownData.preview = utils.getPreview(transformer(sourceCodeObject.code, babelrc));
   }
   // Add style node to markdown data.
   const styleNode = getStyleNode(contentChildren);

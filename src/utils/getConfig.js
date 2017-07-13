@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const defaultConfig = {
-  port: 8000,
+  port: 8888,
   source: ['./components','./docs', 'changelog.md'],
   output: './site',
   theme: './theme',
@@ -33,7 +33,7 @@ function isRelative(filepath) {
  * @return {[type]}            [description]
  */
 module.exports = function getConfig(configFile) {
- 
+
   const customizedConfig = fs.existsSync(configFile) ? require(configFile) : {};
   const config = Object.assign({}, defaultConfig, customizedConfig);
   config.plugins = [pluginHighlight].concat(config.plugins.map(

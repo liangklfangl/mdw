@@ -13,16 +13,16 @@ import { getChildren } from 'jsonml.js/lib/utils';
  * @return {[type]}       [description]
  */
 export default class DemoPage extends React.Component{
- 
+
   state = {
     expandAll : false
   };
-  
+
  handleExpandToggle = ()=>{
    this.setState({ expandAll: !this.state.expandAll});
  }
   render(){
- 
+
    console.log("demopage",this.props);
    //得到这个组件的index.md的说明内容用于显示,demo表示哪些例子
    const {demo,index} = this.props.pageData;
@@ -60,7 +60,7 @@ export default class DemoPage extends React.Component{
                       <span>{title}</span>
                       <span>{subtitle}</span>
                       <EditButton title={title} filename={filename} />
-                   </h1> 
+                   </h1>
                     <If condition={content}>
                       {utils.toReactComponent(content)}
                     </If>
