@@ -138,11 +138,11 @@
   }
 
   &-tbody > tr.@{table-prefix-cls}-row-selected {
-    background: #fafafa;
+    background: @table-selected-row-bg;
   }
 
   &-thead > tr > th.@{table-prefix-cls}-column-sort {
-    background: #eaeaea;
+    background: @table-header-sort-bg;
   }
 
   &-thead > tr > th,
@@ -606,7 +606,7 @@
     height: 100%;
   }
 
-  &-fixed-header &-body {
+  &-fixed-header > &-content > &-scroll > &-body {
     position: relative;
     background: @component-background;
   }

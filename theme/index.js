@@ -63,8 +63,8 @@ module.exports = {
       dataPath: '/',
     },
     //if you visit '/index-cn', we also initialize homeTempl
-      // { 
-      //   path: 'components/:children/', 
+      // {
+      //   path: 'components/:children/',
       //   //So, 'components/Button/demos/basic' will not work, we just care about 'components/Button/'
       //   component: contentTmpl
       // },
@@ -91,6 +91,6 @@ module.exports = {
       //此时只有path最后含有"/"才会实例化这个组件，比如"components/alert/"
       //而"components/alert"不会实例化
     ]
-   
+
   }
 };

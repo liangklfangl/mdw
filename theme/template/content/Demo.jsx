@@ -7,21 +7,7 @@ import classNames from 'classnames';
 import {Icon} from "antd";
 import { is } from 'immutable';
 import EditButton from "./EditButton";
-// import {Select} from "../../../components/index.js";
-// function jsonmlReactLoader() {
-//     var props = { url: "http://mytv-test.alibaba.net/common/jsonp/getYoukuPerson.htm", style: { width: "200px" }, method: 'post',
-//       query: { fetchKey: "keyword" }, data: ["data", 'users'], //对象路由
-//       updater: function updater(item) {
-//         return item.personname;
-//       }, //该函数表示选中一行的时候应该选中哪一个字段在文本框中显示
-//       showHtml: function showHtml(rowData) {
-//         var thumburl = rowData.thumburl;
-//         var personname = rowData.personname;
-//         var personid = rowData.personid;
-//         return "<img style='vertical-align:middle' src=" + thumburl + "></img>" + "<span>" + personid + "</span>" + "<span style='width:80px;'>" + personname + "</span>";
-//       } };
-//       return React.createElement(_index.Select, props);
-//   }
+
     //(5)直接这么写就可以了 <Select {...props}/>
     //(4)无法选择是antd的版本不对
     //(3) 打包好组件，然后放在我们的components.js中，此时class被编译为函数，那么我们直接export的就是函数
@@ -37,6 +23,11 @@ const R = require("ramda");
 export default class Demo extends React.Component {
    constructor(props){
      super(props);
+      this.state = {
+        startValue: null,
+        endValue: null,
+        endOpen: false,
+      };
    }
     state = {
    	  codeExpand:false
@@ -65,20 +56,21 @@ export default class Demo extends React.Component {
   }
    return false;
  }
-  render(){
-    // console.log('jsonmlReactLoader调用返回的对象',jsonmlReactLoader());
 
+
+
+  render(){
   console.log("demo组件接收到的数据this.props",this.props);
     //我们手动添加highlightStyle
-  const {content,highlightedCode,meta,preview,src,demoCodeForBack} = this.props;
+  const {content,style,highlightedCode,meta,preview,src,demoCodeForBack,demoHtmlForBack,demoCssForBack} = this.props;
 	 //详见dora-plugin-antd，content是一个对象有{zh-CN:{},en-US:{}}属性(Demo页面含有中文和英文两部分)
 	 //highlightedCode是demo页面中的"pre标签"与pre标签含有的jsx语言和hightlighted属性(通过prisme高亮显示)
-   const {highlightedStyle, style} = this.props;
    //获取到我们在demo里面写入内联style(调控demo的样式)和highlightedStyle(已经高亮的用于原样显示的代码)
 	 const utils = this.props.utils;
 	 const localTitle = meta.title["zh-CN"];
 	 //获取title
 	 const localContent = content["zh-CN"];
+   console.log('localContent======',localContent);
 	 //直接调用我们的元素的toReactComponent就可以了，其中处理的逻辑通过dora-plugin-highlighted来完成
   // const liveDemo = meta.iframe ? <iframe src={src}/> :this.props.preview(React, ReactDOM);
     // const liveDemo = meta.iframe ? <iframe src={src}/> :jsonmlReactLoader()
@@ -96,11 +88,14 @@ export default class Demo extends React.Component {
       'highlight-wrapper': true,
       'highlight-wrapper-expand': this.state.codeExpand || codeExpand,
    });
+   console.log('preview的内容为::::',this.props.preview(React,ReactDOM));
    //高亮显示的代码部分
      return (
+
       <div className={classHighlightCode}>
          <div  className="code-box-demo" id="code-box-demo">
-          {this.props.preview(React, ReactDOM)}
+           {this.props.preview(React, ReactDOM)}
+
            <If condition={style}>
              {
                <style dangerouslySetInnerHTML={{ __html: style }}/>
@@ -111,21 +106,22 @@ export default class Demo extends React.Component {
           <div className="code-title">{localTitle}</div>
           <EditButton title="github上编辑" filename="http://github.com"/>
          </div>
-          <div className="code-content-description">{localContent}</div>
+          <div className="code-content-description">
+             {utils.toReactComponent(localContent)}
+          </div>
            <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExpand} />
           <div className={highlightedWrapperClss}>
                {utils.toReactComponent(liveCode)}
-              <If condition={highlightedStyle}>
-               <div key="style" className="highlight">
-                  {/*toReactComponent只有显示属性中hightlight属性的功能，见dora-plugin-highlight*/}
-                   <pre>
-                      <code dangerouslySetInnerHTML={{__html:highlightedStyle}}>
-                      </code>
-                   </pre>
-                </div>
-              </If>
+            <If condition={demoHtmlForBack}>
+               <div className="html_code_block">
+                    {utils.toReactComponent(demoHtmlForBack)}
+               </div>
+            </If>
           </div>
       </div>
+
   	)
    }
 }
+
+

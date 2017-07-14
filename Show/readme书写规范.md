@@ -22,4 +22,30 @@ title: Select
 
 (5)所有的代码的切割都是通过h2标签来完成的
 
-(6)在页面api的底部加上可能会遇到的问题。。。。。
+(6)demo页面中的#zh-cn下面的内容必须顶格，否则会解析出来一个p。其实原因是没有调用下面的方法:
+
+```js
+ {utils.toReactComponent(localContent)}
+```
+同时也要如下处理:
+
+```js
+ markdownData.content = {
+      'zh-CN': ['section'].concat(contentChildren.slice(chineseIntroStart + 1, englishIntroStart)),
+      'en-US': ['section'].concat(contentChildren.slice(englishIntroStart + 1, introEnd)),
+    };
+    //调用concat
+```
+
+(7)纯jQuery组件的解决方案:
+
+  方案1：对于jQuery的插件，我们需要在meta中添加jQuery:true,然后我们不会render，你也不需要提供jsx部分，我会直接将__back里面的代码插入到一个div中进行展示。而且我会*在后台自己从npm中下载jQuery*
+  方案2：在meta中添加iframe:true,我来提供一个htmlTemplate，里面有jQuery的链接，即window.jQuery是存在的。但是，如何解决别人乱写getElementById的情况？这种情况我直接 *严格规定id必须是app*。其实id必须是可以配置的，我在demo的template中是如下写的:
+
+```html
+ <div id="{{ id }}"></div>
+```
+
+
+
+(8)添加代码格式化的功能，防止别人写的demo代码全部是随意拷贝进来的。
