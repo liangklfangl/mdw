@@ -67,3 +67,7 @@ mountNode.innerHTML = `
 const el = document.getElementById('J_DateWrap');
 new rc_DatePicker(el, type, params);
 ```
+
+```html
+<div id="app"></div>
+```

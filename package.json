@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "babel src --out-dir lib -w",
-     "dev" :"cross-env NODE_ENV=production node ./bin/mdw --start --configFile ./theme/index.js --webpackFile ./webpack.config.js "
+    "dev": "cross-env NODE_ENV=production node ./bin/mdw --start --configFile ./theme/index.js --webpackFile ./webpack.config.js "
   },
   "author": "liangklfangl",
   "license": "ISC",
@@ -63,6 +63,7 @@
     "cross-env": "^5.0.1",
     "exist.js": "^0.3.0",
     "install": "^0.8.7",
+    "js-beautify": "^1.6.14",
     "npm": "^4.3.0",
     "querystring": "^0.2.0",
     "reqwest": "^2.0.5",

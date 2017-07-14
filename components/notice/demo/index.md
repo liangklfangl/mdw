@@ -37,3 +37,7 @@ new Notice(document.getElementById('app'),
     speed: 500
   });
 ```
+
+```html
+<div id="app"></div>
+```

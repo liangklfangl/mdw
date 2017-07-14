@@ -10,6 +10,7 @@ nunjucks.configure({ autoescape: false });
 const generator = require('babel-generator').default;
 const transformer = require('./transformer');
 const tmpl = fs.readFileSync(path.join(__dirname, 'template.html')).toString();
+const jqueryTmpl = fs.readFileSync(path.join(__dirname, 'jquery-template.html')).toString();
 //babel默认配置
 const babelrc = {
   plugins: [
@@ -147,7 +148,6 @@ module.exports = (markdownData, isBuild ) => {
   const sourceCodeObject = getSourceCodeObject(contentChildren, codeIndex);
   //得到源代码
   if (sourceCodeObject.isES6) {
-    markdownData.demoCodeForBack = getDemoCodeForBack(contentChildren);
     //后端显示的代码
     markdownData.highlightedCode = contentChildren[codeIndex].slice(0, 2);
     //获取高亮的代码~~因为代码是<pre language="jsx">
@@ -166,18 +166,18 @@ module.exports = (markdownData, isBuild ) => {
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
   }
 
-  //用于显示服务端同学需要查看的html
+  //Demo页面中，用于显示服务端同学需要查看的html
   markdownData.demoHtmlForBack = getHtmlCodeForBack(contentChildren);
   markdownData.demoCssForBack = getCssCodeForBack(contentChildren);
   markdownData.jQueryCode = getJQueryCode(contentChildren);
+  markdownData.demoCodeForBack = getDemoCodeForBack(contentChildren);
+
   //得到了我们的纯jQuery代码
-  if (meta.iframe) {
-    meta.reactRouter ="react-router";
+  if(meta.iframe){
     const html = nunjucks.renderString(tmpl, {
       id: meta.id,
       style: markdownData.style,
       script: transformer(sourceCodeObject.code, babelrc),
-      //meta中指定是否应该包含react-router~~
       reactRouter: meta.reactRouter === 'react-router' ? 'react-router@3/umd/ReactRouter' :
         (meta.reactRouter === 'react-router-dom' ? 'react-router-dom@4/umd/react-router-dom' : false),
     });
@@ -185,6 +185,19 @@ module.exports = (markdownData, isBuild ) => {
     fs.writeFile(path.join(process.cwd(), 'site', fileName), html);
     //将我们的template页面渲染所有的js后写入到指定的目录中
     markdownData.src = path.join('/', fileName);
+  }
+  //表示是jQuery写的例子，我们依然采用iframe的方式来预览
+  if (meta.jquery) {
+    meta.reactRouter ="react-router";
+    const html = nunjucks.renderString(jqueryTmpl, {
+      id: meta.id,
+      css:getCode(markdownData.demoCssForBack),
+      script: getCode(markdownData.jQueryCode)
+    });
+    const jQueryFileName = `jquery-demo-${Math.random()}.html`;
+    fs.writeFile(path.join(process.cwd(), 'site', jQueryFileName), html);
+    //将我们的template页面渲染所有的js后写入到指定的目录中
+    markdownData.src = path.join('/', jQueryFileName);
   }
 
   return markdownData;

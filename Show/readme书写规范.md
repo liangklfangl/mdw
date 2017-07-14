@@ -46,6 +46,8 @@ title: Select
  <div id="{{ id }}"></div>
 ```
 
+(9)对于以前的组件，直接wcf生产common.js/index.js/common.css拷贝到我们的markdown就可以了
+
+(8)添加代码格式化的功能，防止别人写的demo代码全部是随意拷贝进来的。https://github.com/liangklfang/js-beautify
 
 
-(8)添加代码格式化的功能，防止别人写的demo代码全部是随意拷贝进来的。

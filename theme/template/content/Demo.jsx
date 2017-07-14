@@ -23,14 +23,10 @@ const R = require("ramda");
 export default class Demo extends React.Component {
    constructor(props){
      super(props);
-      this.state = {
-        startValue: null,
-        endValue: null,
-        endOpen: false,
-      };
    }
     state = {
-   	  codeExpand:false
+   	  codeExpand:false,
+      isJQuery : false
      };
    //panel收缩张开
    handleCodeExpand = ()=>{
@@ -62,7 +58,7 @@ export default class Demo extends React.Component {
   render(){
   console.log("demo组件接收到的数据this.props",this.props);
     //我们手动添加highlightStyle
-  const {content,style,highlightedCode,meta,preview,src,demoCodeForBack,demoHtmlForBack,demoCssForBack} = this.props;
+  const {content,style,highlightedCode,meta,preview,src,demoCodeForBack,demoHtmlForBack,demoCssForBack,jQueryCode} = this.props;
 	 //详见dora-plugin-antd，content是一个对象有{zh-CN:{},en-US:{}}属性(Demo页面含有中文和英文两部分)
 	 //highlightedCode是demo页面中的"pre标签"与pre标签含有的jsx语言和hightlighted属性(通过prisme高亮显示)
    //获取到我们在demo里面写入内联style(调控demo的样式)和highlightedStyle(已经高亮的用于原样显示的代码)
@@ -70,7 +66,6 @@ export default class Demo extends React.Component {
 	 const localTitle = meta.title["zh-CN"];
 	 //获取title
 	 const localContent = content["zh-CN"];
-   console.log('localContent======',localContent);
 	 //直接调用我们的元素的toReactComponent就可以了，其中处理的逻辑通过dora-plugin-highlighted来完成
   // const liveDemo = meta.iframe ? <iframe src={src}/> :this.props.preview(React, ReactDOM);
     // const liveDemo = meta.iframe ? <iframe src={src}/> :jsonmlReactLoader()
@@ -83,19 +78,24 @@ export default class Demo extends React.Component {
           expand: this.state.codeExpand || codeExpand,
 	 });
    const liveCode = demoCodeForBack || highlightedCode || "";
-   //如果有demoCodeForBack表示是兼容后台的页面，否则就是正常页面
+   //注意：如果有demoCodeForBack表示是兼容后台的页面，否则就是正常页面显示highlightedCode即可
    const highlightedWrapperClss = classNames({
       'highlight-wrapper': true,
       'highlight-wrapper-expand': this.state.codeExpand || codeExpand,
    });
-   console.log('preview的内容为::::',this.props.preview(React,ReactDOM));
+   const codeboxStyleObj = meta.jquery ? {"width":meta.jquery} : {};
+   // console.log('preview的内容为::::',this.props.preview(React,ReactDOM));
    //高亮显示的代码部分
      return (
 
-      <div className={classHighlightCode}>
+      <div className={classHighlightCode} style={codeboxStyleObj}>
          <div  className="code-box-demo" id="code-box-demo">
-           {this.props.preview(React, ReactDOM)}
-
+           <If condition={this.props.preview}>
+             {this.props.preview(React, ReactDOM)}
+           </If>
+           <If condition={jQueryCode}>
+               <iframe src={src} />
+            </If>
            <If condition={style}>
              {
                <style dangerouslySetInnerHTML={{ __html: style }}/>
@@ -112,6 +112,8 @@ export default class Demo extends React.Component {
            <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExpand} />
           <div className={highlightedWrapperClss}>
                {utils.toReactComponent(liveCode)}
+
+            {/*下面是展示给后台同学看的代码*/}
             <If condition={demoHtmlForBack}>
                <div className="html_code_block">
                     {utils.toReactComponent(demoHtmlForBack)}
